@@ -10,17 +10,19 @@ type FormInputProps = {
     error?: string;
     type: string;
     htmlFor?: string;
+    width?: string;
+    margin?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-const FormInput: React.FC<FormInputProps> = ({label = 'What\'s your email?', error, htmlFor = 'check', type,...otherProp}) => {
+const FormInput: React.FC<FormInputProps> = ({label, error, htmlFor, type,  width, margin, ...otherProp}) => {
     return (
         <div className="form-input-container">
             {label && type !== 'radio' && type !== 'checkbox' && <label className="form-input-label" htmlFor={htmlFor}>{label}</label>}
             <div className="input-container">
-                <input className = {`form-input ${error? 'danger': ''}`} id={htmlFor} name={htmlFor} type={type} {...otherProp}/>
+                <input className = {`form-input ${error? 'danger': ''}`} id={htmlFor} type={type} {...otherProp} style={{width: width, margin: margin}} />
                 {(type === 'radio')? <span className="input-radio-span"></span>: '' }
                 {(type === 'checkbox')?(
-                     <IconContext.Provider value={{ className: "input-checkbox-check", style: {size: '2em'}}}>
+                     <IconContext.Provider value={{ className: "input-checkbox-check"}}>
                      <FaCheck  />
                      </IconContext.Provider>) : ''}
                 {label && (type === 'radio' || type === 'checkbox') && <label className="form-input-label" htmlFor={htmlFor}>{label}</label>}

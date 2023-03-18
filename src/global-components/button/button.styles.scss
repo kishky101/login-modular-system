@@ -1,0 +1,43 @@
+.button-container {
+    width: auto;
+    height: auto;
+    font-family: var(--lato-font);
+
+    .button {
+        border: none;
+        padding: 1em 3em;
+        background-color: transparent;
+        border-radius: 30px;
+        border: 1px solid var(--grey-grade1);
+        //width: 100%;
+        font-weight: 700;
+        color: var(--grey-grade1);
+        height: 57px;
+        width: 435px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+
+        &.button--facebook {
+            background-color: var(--blue-color);
+            color: var(--white-color);
+            border: none;
+        }
+
+        &.button--apple {
+            background-color: var(--black-color);
+            color: var(--white-color);
+            border: none;
+        }
+
+        &.button--sign-in {
+            background-color: var(--green-color);
+            color: var(--black-color);
+            border: none;
+            width: auto;
+        }
+    }
+
+}

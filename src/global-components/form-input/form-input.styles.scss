@@ -1,6 +1,5 @@
 .form-input-container {
     width: 100%;
-    padding: 20%;
     margin: 2rem 0;
     font-family: var(--lato-font);
 
@@ -12,17 +11,18 @@
     }
 
     .form-input {
-        width: 100%;
-        height: 3rem;
+        width: 442px;
+        height: 3.5rem;
         padding: 1rem 2rem;
         margin: 1rem auto;
-        font-weight: 600;
+        font-weight: 500;
         border: none;
         outline: none;
         border: 1px inset var(--grey-grade3);
         border-radius: 30px;
         border-top-right-radius: 30px;
         border-bottom-right-radius: 30px;
+        font-size: 14px;
 
         &:hover {
             border: 1px inset var(--black-color);
@@ -101,7 +101,7 @@
                 z-index: 1;
                 position: absolute;
                 top: 38%;
-                left: .6%;
+                left: 7%;
             }
         }
 
@@ -122,7 +122,7 @@
                 z-index: 1;
                 position: absolute;
                 top: 37%;
-                left: .5%;
+                left: .9%;
                 size: 70;
             }
         }

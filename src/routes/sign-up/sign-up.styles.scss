@@ -1,0 +1,97 @@
+.sign-up {
+    max-width: 1440px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+        max-width: 442px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__logo {
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+
+    &__h2 {
+        font-size: 36px;
+        font-family: var(--lato-font);
+        margin-bottom: 50px;
+        text-align: center;
+        color: var(--black-color);
+    }
+
+    &__buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    &__dividers {
+        width: 100%;
+        margin: 32px 0;
+        color: var(--grey-grade3);
+    }
+
+    &__divider {
+        display: inline-block;
+        width: 42%;
+        border: .1px solid var(--grey-grade3);
+        border-radius: 50px;
+
+        &:first-of-type {
+            margin-right: 24px;
+        }
+
+        &:last-of-type {
+            margin-left: 24px;
+        }
+    }
+
+    &__h3 {
+        color: var(--black-color);
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    &__profile {
+        display: block;
+        margin-top: -2rem;
+        margin-bottom: 2rem;
+        color: var(--black-color);
+        font-size: 14px;
+    }
+
+    &__fieldset {
+        border: none;
+        color: var(--black-color);
+    }
+
+    &__date {
+        display: grid;
+        grid-template-columns: 2.0285fr 1.2505fr 1.4187fr;
+        gap: 12px;
+        margin-top: -1rem;
+    }
+
+    &__select {
+        margin: 2rem 0;
+    }
+
+    &__month {
+        margin-bottom: 10px;
+    }
+
+    &__radios {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+}
