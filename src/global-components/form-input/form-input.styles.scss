@@ -20,9 +20,7 @@
         border: none;
         outline: none;
         border: 1px inset var(--grey-grade3);
-        border-radius: 30px;
-        border-top-right-radius: 30px;
-        border-bottom-right-radius: 30px;
+        border-radius: 50px;
         font-size: 14px;
 
         &:hover {
@@ -82,7 +80,7 @@
                 font-weight: 700;
                 font-size: 14px;
                 position: absolute;
-                top: 40%;
+                top: 30%;
                 left: 2.375rem;
             }
         }
@@ -143,5 +141,15 @@
         color: var(--red-color);
         font-weight: 700;
         font-size: 14px;
+    }
+
+
+    @media screen and (max-width: 476px) {
+        max-width: 343px;
+
+
+        .form-input {
+            padding: 20px 24px;
+        }
     }
 }

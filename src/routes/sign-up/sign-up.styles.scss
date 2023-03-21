@@ -106,7 +106,7 @@
 
     &__date {
         display: grid;
-        grid-template-columns: 2.0285fr 1.2505fr 1.4187fr;
+        grid-template-columns: 189px 110px 119px;
         gap: 12px;
         margin-top: -1rem;
         align-items: center;
@@ -151,7 +151,8 @@
         text-align: center;
         max-width: 424px;
         margin: 32px 0;
-
+        font-weight: 500;
+        line-height: 15.6px;
         &--link {
             color: var(--green-color);
         }
@@ -162,6 +163,8 @@
         text-align: center;
         max-width: 413px;
         margin-bottom: 32px;
+        font-weight: 500;
+        line-height: 15.6px;
         &--link {
             color: var(--green-color);
         }
@@ -176,9 +179,49 @@
 
     &__redirect {
         font-size: 16px;
+        font-weight: 600;
 
         &--link {
             color: var(--green-color);
+        }
+    }
+
+    @media screen and (max-width: 476px) {
+        &__container {
+            max-width: 343px;
+        }
+
+        &__divider {
+            width: 39%;
+        }
+
+        &__date {
+            grid-template-columns: 135px 92px 92px;
+        }
+
+        &__radios {
+            display: grid;
+            grid-template-columns: 69px 82px 108px;
+            grid-template-rows: repeat(2, 38px);
+        }
+
+        &__p {
+            margin-bottom: 2rem;
+        }
+
+        &__agree {
+            max-width: 278px;
+            font-weight: 600;
+        }
+
+        &__terms {
+            max-width: 328px;
+            font-weight: 600;
+            margin-bottom: -1rem;
+
+            &--link {
+                display: block;
+            }
         }
     }
 }

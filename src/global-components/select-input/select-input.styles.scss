@@ -4,7 +4,7 @@
     color: var(--black-color);
 
     &__label {
-        width: 189px;
+        width: 100%;
         height: 56px;
         border: 1px solid var(--grey-grade1);
         padding: 1rem 2rem;
@@ -63,6 +63,13 @@
         &--selected {
             background-color: var(--grey-grade3);
             border-radius: .5rem;
+        }
+    }
+
+    @media screen and (max-width: 476px) {
+        
+        &__label {
+            padding:20px 24px;
         }
     }
 

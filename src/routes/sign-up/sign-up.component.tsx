@@ -64,21 +64,21 @@ const SignUp: React.FC = () => {
                   />
                 </div>
                 <FormInput
-                  type="number"
+                  type=""
                   label="Day"
                   placeholder="DD"
                   htmlFor="day"
-                  width="110px"
+                  //width="110px"
                   margin="10px auto"
                   max={31}
                   min={1}
                 />
                 <FormInput
-                  type="number"
+                  type=""
                   label="Year"
                   placeholder="YYY"
                   htmlFor="year"
-                  width="119px"
+                  //width="119px"
                   margin="10px auto"
                   max={2020}
                   min={1900}
@@ -134,8 +134,8 @@ const SignUp: React.FC = () => {
             </div>
 
             <div className="sign-up__p">
-              <p className="sign-up__agree">By clicking on sign-up you agree to spotify&apos;s <a href="#" className="sign-up__agree--link">Terms and Conditions of Use</a></p>
-              <p className="sign-up__terms">To learn more about how. Spotify collects, uses, shares and protects your personal data, please see <a href="#" className="sign-up__terms--link">Spotify’s Privacy Policy.</a></p>
+              <p className="sign-up__agree">By clicking on sign-up you agree to spotify&apos;s <a href="#" className="sign-up__agree--link">Terms and Conditions of Use</a>.</p>
+              <p className="sign-up__terms">To learn more about how. Spotify collects, uses, shares and protects your personal data, please see <a href="#" className="sign-up__terms--link">Spotify’s Privacy Policy</a>.</p>
             </div>
             <div className="sign-up__button">
               <Button buttonType="sign-in">Sign up</Button>
