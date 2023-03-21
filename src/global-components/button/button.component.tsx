@@ -10,10 +10,10 @@ type ButtonProps = {
 const Button: React.FC<ButtonProps> = ({buttonType, children = 'submit', ...otherProp}) => {
     return (
         <div className="button-container">
-            <button className={`button 
-            ${buttonType === 'facebook'? 'button--facebook': "" } 
-            ${buttonType === 'apple'? 'button--apple': "" } 
-            ${buttonType === 'sign-in'? 'button--sign-in': "" }`} {...otherProp}>{children}</button>
+            <button className={`button-container__button 
+            ${buttonType === 'facebook'? 'button-container__button--facebook': "" } 
+            ${buttonType === 'apple'? 'button-container__button--apple': "" } 
+            ${buttonType === 'sign-in'? 'button-container__button--sign-in': "" }`} {...otherProp}>{children}</button>
         </div>
     )
 }

@@ -64,24 +64,18 @@ const SignUp: React.FC = () => {
                   />
                 </div>
                 <FormInput
-                  type=""
+                  type="text"
                   label="Day"
                   placeholder="DD"
                   htmlFor="day"
-                  //width="110px"
                   margin="10px auto"
-                  max={31}
-                  min={1}
                 />
                 <FormInput
-                  type=""
+                  type="text"
                   label="Year"
                   placeholder="YYY"
                   htmlFor="year"
-                  //width="119px"
                   margin="10px auto"
-                  max={2020}
-                  min={1900}
                 />
               </div>
             </fieldset>

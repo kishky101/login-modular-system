@@ -1,38 +1,40 @@
 .button-container {
-    width: auto;
+    width: 100%;
     height: auto;
     font-family: var(--lato-font);
+    max-width: 435px;
+    display: flex;
+    justify-content: center;
 
-    .button {
+    &__button {
         border: none;
         padding: 1em 3em;
         background-color: transparent;
         border-radius: 50px;
         border: 1px solid var(--grey-grade1);
-        //width: 100%;
+        width: 100%;
         font-weight: 700;
         color: var(--grey-grade1);
         height: 57px;
-        width: 435px;
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 20px;
 
 
-        &.button--facebook {
+        &--facebook {
             background-color: var(--blue-color);
             color: var(--white-color);
             border: none;
         }
 
-        &.button--apple {
+        &--apple {
             background-color: var(--black-color);
             color: var(--white-color);
             border: none;
         }
 
-        &.button--sign-in {
+        &--sign-in {
             background-color: var(--green-color);
             color: var(--black-color);
             padding: 18px 60px;
@@ -42,9 +44,7 @@
     }
 
     @media screen and (max-width: 476px) {
-        .button {
             width: 343px;
-        }
     }
 
 }
