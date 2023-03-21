@@ -25,7 +25,7 @@ const FormInput: React.FC<FormInputProps> = ({label, error, htmlFor, type,  widt
                      <IconContext.Provider value={{ className: "input-checkbox-check"}}>
                      <FaCheck  />
                      </IconContext.Provider>) : ''}
-                {label && (type === 'radio' || type === 'checkbox') && <label className="form-input-label" htmlFor={htmlFor}>{label}</label>}
+                {label && (type === 'radio' || type === 'checkbox') && <label className="form-input-label" style={{fontWeight: '400'}} htmlFor={htmlFor}>{label}</label>}
             </div>
             {error && <span className="form-input-error"> <FiAlertTriangle /> {error}</span>}
         </div>

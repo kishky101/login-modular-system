@@ -10,7 +10,7 @@ const SignIn: React.FC = () => {
     return (
         <>
             <h1>I am Sign In Page</h1>
-            <FormInput type= {'checkbox'} />
+            <FormInput type= {'radio'} />
             <Button />
             <Logo />
             <SelectInput placeHolder="" options={['boy', 'girl', 'prefer not to say', 'house', 'child', '1', '2', '3', '4', '5', '6', '7']} onChange={(e) => console.log(e.target.name)} />
