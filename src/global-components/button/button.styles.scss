@@ -1,5 +1,5 @@
 .button-container {
-    width: 100%;
+    //width: 100%;
     height: auto;
     font-family: var(--lato-font);
     max-width: 435px;
@@ -40,11 +40,13 @@
             padding: 18px 60px;
             border: none;
             width: auto;
+            white-space: nowrap;
         }
     }
 
     @media screen and (max-width: 476px) {
-            width: 343px;
+            //width: 343px;
+            max-width: 343px;
     }
 
 }
