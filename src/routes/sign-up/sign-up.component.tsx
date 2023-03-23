@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "@/global-components/logo/logo.component";
 import Button from "@/global-components/button/button.component";
 import FormInput from "@/global-components/form-input/form-input.component";
@@ -6,8 +6,43 @@ import SelectInput from "@/global-components/select-input/select-input.component
 
 import './sign-up.styles.scss';
 
+const defaultSignUpFields = {
+  email: '',
+  confirmEmail: '',
+  password: '',
+  profileName: '',
+  month: '',
+  day: '',
+  year: '',
+  gender: '',
+  marketing: '',
+}
+
 const SignUp: React.FC = () => {
   const months = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+  const [signUpFields, setSignUpFields] = useState(defaultSignUpFields);
+
+  const {  
+    email,
+    confirmEmail,
+    password,
+    profileName,
+    day,
+    year,
+ } = signUpFields;
+
+ const onSubmitHandler = (e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    //console.log(signUpFields)
+ }
+
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const {name, value} = e.target
+
+    return setSignUpFields({...signUpFields, [name]: value})
+  }
 
   return (
     <div className="sign-up">
@@ -25,30 +60,42 @@ const SignUp: React.FC = () => {
         </div>
         <div className="sign-up__form">
           <h3 className="sign-up__h3">Sign up with your email address</h3>
-          <form className="sign-up__form-fields">
+          <form onSubmit={onSubmitHandler} className="sign-up__form-fields">
             <div className="sign-up__text-input">
               <FormInput 
                 type="email"
                 label="What is your email?"
                 placeholder="Enter your email"
                 htmlFor="email"
+                name="email"
+                value={email}
+                onChange={onChangeHandler}
               />
               <FormInput 
                 type="email"
                 label="Confirm your email"
                 placeholder="Enter your email again"
+                name="confirmEmail"
+                value={confirmEmail}
+                onChange={onChangeHandler}
               />
               <FormInput 
                 type="password"
                 label="Create a password"
                 placeholder="Create a password"
                 htmlFor="password"
+                name="password"
+                value={password}
+                onChange={onChangeHandler}
               />
               <FormInput 
                 type="text"
                 label="What should we call you?"
                 placeholder="Enter a profile name"
                 htmlFor="profileName"
+                name="profileName"
+                value={profileName}
+                onChange={onChangeHandler}
               />
               <span className="sign-up__profile">This appears on your profile.</span>
             </div>
@@ -60,7 +107,8 @@ const SignUp: React.FC = () => {
                   <SelectInput 
                     options={months} 
                     placeHolder="Month" 
-                    onChange={(e) => console.log(e)}
+                    onChange={onChangeHandler}
+                    name = 'month'
                   />
                 </div>
                 <FormInput
@@ -69,6 +117,9 @@ const SignUp: React.FC = () => {
                   placeholder="DD"
                   htmlFor="day"
                   margin="10px auto"
+                  name="day"
+                  value={day}
+                  onChange={onChangeHandler}
                 />
                 <FormInput
                   type="text"
@@ -76,6 +127,9 @@ const SignUp: React.FC = () => {
                   placeholder="YYY"
                   htmlFor="year"
                   margin="10px auto"
+                  name="year"
+                  value={year}
+                  onChange={onChangeHandler}
                 />
               </div>
             </fieldset>
@@ -88,6 +142,7 @@ const SignUp: React.FC = () => {
                   name="gender"
                   htmlFor="male"
                   value="male"
+                  onChange={onChangeHandler}
                 />
                 <FormInput 
                   type="radio"
@@ -95,6 +150,7 @@ const SignUp: React.FC = () => {
                   name="gender"
                   htmlFor="female"
                   value="female"
+                  onChange={onChangeHandler}
                 />
                 <FormInput 
                   type="radio"
@@ -102,6 +158,7 @@ const SignUp: React.FC = () => {
                   name="gender"
                   htmlFor="non-binary"
                   value="non-binary"
+                  onChange={onChangeHandler}
                 />
                 <FormInput 
                   type="radio"
@@ -109,6 +166,7 @@ const SignUp: React.FC = () => {
                   name="gender"
                   htmlFor="other"
                   value="other"
+                  onChange={onChangeHandler}
                 />
                 <FormInput 
                   type="radio"
@@ -116,6 +174,7 @@ const SignUp: React.FC = () => {
                   name="gender"
                   htmlFor="not-say"
                   value="Prefer not to say"
+                  onChange={onChangeHandler}
                 />
               </div>
             </fieldset>
@@ -124,6 +183,9 @@ const SignUp: React.FC = () => {
                 type="checkbox"
                 label="Share my registration date with Spotify’s content providers for marketing purposes."
                 htmlFor="marketing"
+                name="marketing"
+                value='yes'
+                onChange={onChangeHandler}
               />
             </div>
 
@@ -132,7 +194,7 @@ const SignUp: React.FC = () => {
               <p className="sign-up__terms">To learn more about how. Spotify collects, uses, shares and protects your personal data, please see <a href="#" className="sign-up__terms--link">Spotify’s Privacy Policy</a>.</p>
             </div>
             <div className="sign-up__button">
-              <Button buttonType="sign-in">Sign up</Button>
+              <Button type="submit" buttonType="sign-in">Sign up</Button>
             </div>
           </form>
           <p className="sign-up__redirect">Have an account? <a href="#" className="sign-up__redirect--link">Log in</a></p>

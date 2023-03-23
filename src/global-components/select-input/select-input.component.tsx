@@ -5,11 +5,12 @@ import './select-input.styles.scss';
 type SelectInputProp = {
     options: string[];
     placeHolder: string;
+    name: string;
     onChange: ChangeEventHandler<HTMLInputElement>
 }
 
 
-const SelectInput: React.FC<SelectInputProp> = ({options, onChange, placeHolder}) => {
+const SelectInput: React.FC<SelectInputProp> = ({options, onChange, placeHolder, name}) => {
 
     const selectRef = useRef<HTMLDivElement>(null);
     const [choice, setChoice] = useState(placeHolder)
@@ -55,7 +56,7 @@ const SelectInput: React.FC<SelectInputProp> = ({options, onChange, placeHolder}
                 options.map(option => {
                     return (
                         <label className="select-input__option" htmlFor={option} key={option}>{option}
-                            <input type={'radio'} id={option} name='gender' value={option} onChange={onChangeHandler} />
+                            <input type={'radio'} id={option} value={option} onChange={onChangeHandler} name={name} />
                         </label>
                     )
                 })
