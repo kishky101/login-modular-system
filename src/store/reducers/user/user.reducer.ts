@@ -20,16 +20,21 @@ export const UserReducer = (state = INITIAL_STATE, action: AnyAction): UserState
 
     switch(action.type) {
         case USERTYPES.USER_SIGNIN_START :
+        case USERTYPES.USER_SIGNUP_START :
             return {...state, isLoading: true};
+
+        case USERTYPES.USER_SIGNUP_SUCCESS :
+            return {...state, isLoading: false}
 
         case USERTYPES.USER_SIGNIN_SUCCESS :
             return {...state, isLoading: false, currentUser: action.payload};
 
         case USERTYPES.USER_SIGNIN_FAILED :
+        case USERTYPES.USER_SIGNUP_FAILED :
             return {...state, isLoading: false, error: action.payload};
 
-        case USERTYPES.SET_CURRENT_USER :
-            return {...state, isLoading: false, currentUser: action.payload};
+        // case USERTYPES.SET_CURRENT_USER :
+        //     return {...state, isLoading: false, currentUser: action.payload};
 
         default :
             return state;

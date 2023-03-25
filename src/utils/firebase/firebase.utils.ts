@@ -38,8 +38,8 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-type AdditionalInfo = {
-    nickName?: string;
+export type AdditionalInfo = {
+    profileName?: string;
     dob?: string;
     gender?: string;
 }

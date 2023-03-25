@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useAppDispatch } from "@/hooks/hooks";
 import Logo from "@/global-components/logo/logo.component";
 import Button from "@/global-components/button/button.component";
 import FormInput from "@/global-components/form-input/form-input.component";
 import SelectInput from "@/global-components/select-input/select-input.component";
-
+import { userSignUpAsync } from "@/store/reducers/user/user.actions";
 import './sign-up.styles.scss';
+
+//import { getCurrentUser, createUserDocumentFromAuth } from "@/utils/firebase/firebase.utils";
 
 const defaultSignUpFields = {
   email: '',
@@ -20,26 +24,99 @@ const defaultSignUpFields = {
 
 const SignUp: React.FC = () => {
   const months = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-
+  // getCurrentUser().then(user => {
+  //   if (user) {
+  //     console.log(createUserDocumentFromAuth(user, 'users').then(us => console.log(us)))
+  //   }
+  // })
   const [signUpFields, setSignUpFields] = useState(defaultSignUpFields);
-
+  const [emailError, setEmailError] = useState('');
+  const [confirmEmailError, setConfirmEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [dayError, setDayError] = useState('');
+  const [genderError, setGenderError] = useState('');
+  const [yearError, setYearError] = useState('');
+  const dispatch = useAppDispatch();
   const {  
     email,
     confirmEmail,
     password,
     profileName,
+    month,
     day,
     year,
+    gender,
  } = signUpFields;
 
- const onSubmitHandler = (e: React.ChangeEvent<HTMLFormElement>) => {
+  const onSubmitHandler = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    //console.log(signUpFields)
- }
+    if ( !email || !confirmEmail || !password || !profileName || !month || !day || !year || !gender ) return 
+
+    if (email !== confirmEmail) return
+
+    const dob = `${month}, ${day} ${year}`
+
+    const additonalDetails = {
+      dob,
+      gender,
+      profileName
+    }
+
+    dispatch(userSignUpAsync(email, password, additonalDetails))
+    return setSignUpFields(defaultSignUpFields);
+  }
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
+
     const {name, value} = e.target
+
+    if (name === 'email') {
+      const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+      const test = emailRegex.test(value);
+      if (test) {
+        setEmailError('')
+      }else {
+        setEmailError('Enter a valid email')
+      }
+    }
+    if (name === 'confirmEmail') {
+      if (value === email) {
+        setConfirmEmailError('')
+      }else {
+        setConfirmEmailError('Enter a valid email')
+      }
+    }
+    if (name === 'password') {
+      const emailRegex = /[\w\d*@.]{6,}/;
+      const test = emailRegex.test(value);
+      if (test) {
+        setPasswordError('')
+      }else {
+        setPasswordError('At least six characters')
+      }
+    }
+    if (name === 'day') {
+      if (Number(value) > 0 && Number(value) <= 31)  {
+        setDayError('')
+      }else {
+        setDayError('from 1-31')
+      }
+    }
+    if (name === 'year') {
+      if (Number(value) > 1900 && Number(value) <= 2020)  {
+        setYearError('')
+      }else {
+        setYearError('from 1900-2020')
+      }
+    }
+    if (name === 'gender') {
+      if (value) {
+        setGenderError('')
+      }else {
+        setGenderError('Enter a valid email')
+      }
+    }
 
     return setSignUpFields({...signUpFields, [name]: value})
   }
@@ -69,6 +146,7 @@ const SignUp: React.FC = () => {
                 htmlFor="email"
                 name="email"
                 value={email}
+                error={emailError}
                 onChange={onChangeHandler}
               />
               <FormInput 
@@ -77,6 +155,7 @@ const SignUp: React.FC = () => {
                 placeholder="Enter your email again"
                 name="confirmEmail"
                 value={confirmEmail}
+                error={confirmEmailError}
                 onChange={onChangeHandler}
               />
               <FormInput 
@@ -86,6 +165,7 @@ const SignUp: React.FC = () => {
                 htmlFor="password"
                 name="password"
                 value={password}
+                error={passwordError}
                 onChange={onChangeHandler}
               />
               <FormInput 
@@ -119,6 +199,7 @@ const SignUp: React.FC = () => {
                   margin="10px auto"
                   name="day"
                   value={day}
+                  error={dayError}
                   onChange={onChangeHandler}
                 />
                 <FormInput
@@ -129,6 +210,7 @@ const SignUp: React.FC = () => {
                   margin="10px auto"
                   name="year"
                   value={year}
+                  error={yearError}
                   onChange={onChangeHandler}
                 />
               </div>
@@ -197,7 +279,7 @@ const SignUp: React.FC = () => {
               <Button type="submit" buttonType="sign-in">Sign up</Button>
             </div>
           </form>
-          <p className="sign-up__redirect">Have an account? <a href="#" className="sign-up__redirect--link">Log in</a></p>
+          <p className="sign-up__redirect">Have an account? <Link to='/sign-in' className="sign-up__redirect--link">Log in</Link></p>
         </div>
       </div>
     </div>

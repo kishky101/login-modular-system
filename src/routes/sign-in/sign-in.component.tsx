@@ -1,14 +1,12 @@
 import React, {useState} from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Logo from "@/global-components/logo/logo.component";
 import Button from "@/global-components/button/button.component";
 import FormInput from "@/global-components/form-input/form-input.component";
-//import {  createUserDocumentFromAuth, signInUserWithEmailAndPassword } from "@/utils/firebase/firebase.utils";
-//import { setCurrentUser } from "@/store/reducers/user/user.actions";
 import { userSignInAsync } from "@/store/reducers/user/user.actions";
 import './sign-in.styles.scss';
 import { selectCurrentUser } from "@/store/reducers/user/user.selector";
-//import {userSignInAsync} from '../../store/reducers/user/user.actions.js'
 import { useAppDispatch } from "@/hooks/hooks";
 const defaultSignInFields = {
   email: '',
@@ -21,32 +19,41 @@ const SignIn: React.FC = () => {
   const currentUser = useSelector(selectCurrentUser)
   console.log(currentUser)
   const [signInFields, setSignInFields] = useState(defaultSignInFields);
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  
 
   const { email, password } = signInFields;
-  //console.log(signInFields)
 
   const onSubmitHandler = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!email || !password) return;
-    dispatch(userSignInAsync(email, password))
-    // try {
-    //   const userCredential  = await signInUserWithEmailAndPassword(email, password);
-    //   if (userCredential) {
-    //     const userSnapshot = await createUserDocumentFromAuth(userCredential?.user, 'users');
-    //     if (userSnapshot) {
-    //       dispatch(setCurrentUser(userSnapshot.data()))
-    //       //console.log(userSnapshot.data())
-    //     }
-        
-    //   }
-    // } catch (error) {
-    //   console.error('error', error)
-    // }
+    dispatch(userSignInAsync(email, password));
+    return setSignInFields(defaultSignInFields);
   }
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const {name, value} = e.target
+
+    if (name === 'email') {
+      const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+      const test = emailRegex.test(value);
+      if (test) {
+        setEmailError('')
+      }else {
+        setEmailError('Enter a valid email')
+      }
+    }
+    if (name === 'password') {
+      const emailRegex = /[\w\d*@.]{6,}/;
+      const test = emailRegex.test(value);
+      if (test) {
+        setPasswordError('')
+      }else {
+        setPasswordError('At least six characters')
+      }
+    }
 
     return  (setSignInFields({...signInFields, [name]: value}))
   }
@@ -76,6 +83,7 @@ const SignIn: React.FC = () => {
                 htmlFor="email"
                 name="email"
                 value={email}
+                error={emailError}
                 onChange={onChangeHandler}
               />
               <FormInput 
@@ -85,6 +93,7 @@ const SignIn: React.FC = () => {
                 htmlFor="password"
                 name="password"
                 value={password}
+                error={passwordError}
                 onChange={onChangeHandler}
               />
               <span className="sign-in__profile">Do you not remember the password?</span>
@@ -104,13 +113,15 @@ const SignIn: React.FC = () => {
                   onChange={onChangeHandler}
                 />
               </div>
-              <Button type="submit" buttonType="sign-in">Sign up</Button>
+              <Button type="submit" buttonType="sign-in">Sign in</Button>
             </div>
           </form>
           <span className="sign-in__divider2"></span>
           <div className="sign-in__redirect">
             <p>You do not have an account yet?</p>
-            <Button><span className="sign-in__redirect--opacity">Sign up for spotify</span></Button>
+            <Link to='/sign-up'>
+              <Button><span className="sign-in__redirect--opacity">Sign up for spotify</span></Button>
+            </Link>
           </div>
           
         </div>
