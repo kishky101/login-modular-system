@@ -97,11 +97,12 @@ export const getCurrentUser = async (): Promise<User | null> => {
         const unsubscribe = onAuthStateChanged(
             auth,
             (userAuth) => {
-                unsubscribe()
                 resolve(userAuth)
+                unsubscribe()
             },
             reject
         )
     })
 }
+
 

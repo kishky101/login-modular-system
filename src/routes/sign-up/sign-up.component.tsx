@@ -1,11 +1,15 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "@/hooks/hooks";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "@/store/reducers/user/user.selector";
 import Logo from "@/global-components/logo/logo.component";
 import Button from "@/global-components/button/button.component";
 import FormInput from "@/global-components/form-input/form-input.component";
 import SelectInput from "@/global-components/select-input/select-input.component";
-import { userSignUpAsync } from "@/store/reducers/user/user.actions";
+import RadioInput from "@/global-components/radio-input/radio-input.component";
+//import { userSignUpAsync } from "@/store/reducers/user/user.actions";
+import { userSignUpAsync } from "@/store/reducers/user/user.reducerRT";
 import './sign-up.styles.scss';
 
 //import { getCurrentUser, createUserDocumentFromAuth } from "@/utils/firebase/firebase.utils";
@@ -29,6 +33,8 @@ const SignUp: React.FC = () => {
   //     console.log(createUserDocumentFromAuth(user, 'users').then(us => console.log(us)))
   //   }
   // })
+  const navigate = useNavigate();
+  const currentUser = useSelector(selectCurrentUser);
   const [signUpFields, setSignUpFields] = useState(defaultSignUpFields);
   const [emailError, setEmailError] = useState('');
   const [confirmEmailError, setConfirmEmailError] = useState('');
@@ -62,7 +68,7 @@ const SignUp: React.FC = () => {
       profileName
     }
 
-    dispatch(userSignUpAsync(email, password, additonalDetails))
+    dispatch(userSignUpAsync({email, password, additonalDetails}))
     return setSignUpFields(defaultSignUpFields);
   }
 
@@ -114,12 +120,18 @@ const SignUp: React.FC = () => {
       if (value) {
         setGenderError('')
       }else {
-        setGenderError('Enter a valid email')
+        setGenderError('choose your gender')
       }
     }
 
     return setSignUpFields({...signUpFields, [name]: value})
   }
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/')
+    }
+  } , [currentUser])
 
   return (
     <div className="sign-up">
@@ -218,7 +230,7 @@ const SignUp: React.FC = () => {
             <fieldset className="sign-up__fieldset sign-up__fieldset--radios">
               <legend className="sign-up__legend">What&apos;s your gender</legend>
               <div className="sign-up__radios">
-                <FormInput 
+                <RadioInput 
                   type="radio"
                   label="Male"
                   name="gender"
@@ -226,7 +238,7 @@ const SignUp: React.FC = () => {
                   value="male"
                   onChange={onChangeHandler}
                 />
-                <FormInput 
+                <RadioInput 
                   type="radio"
                   label="Female"
                   name="gender"
@@ -234,7 +246,7 @@ const SignUp: React.FC = () => {
                   value="female"
                   onChange={onChangeHandler}
                 />
-                <FormInput 
+                <RadioInput 
                   type="radio"
                   label="Non-binary"
                   name="gender"
@@ -242,7 +254,7 @@ const SignUp: React.FC = () => {
                   value="non-binary"
                   onChange={onChangeHandler}
                 />
-                <FormInput 
+                <RadioInput 
                   type="radio"
                   label="Other"
                   name="gender"
@@ -250,7 +262,7 @@ const SignUp: React.FC = () => {
                   value="other"
                   onChange={onChangeHandler}
                 />
-                <FormInput 
+                <RadioInput 
                   type="radio"
                   label="Prefer not to say"
                   name="gender"
@@ -261,7 +273,7 @@ const SignUp: React.FC = () => {
               </div>
             </fieldset>
             <div className="sign-up__marketing">
-              <FormInput 
+              <RadioInput 
                 type="checkbox"
                 label="Share my registration date with Spotify’s content providers for marketing purposes."
                 htmlFor="marketing"

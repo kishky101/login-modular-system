@@ -1,10 +1,13 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Logo from "@/global-components/logo/logo.component";
 import Button from "@/global-components/button/button.component";
+import RadioInput from "@/global-components/radio-input/radio-input.component";
 import FormInput from "@/global-components/form-input/form-input.component";
-import { userSignInAsync } from "@/store/reducers/user/user.actions";
+//import { userSignInAsync } from "@/store/reducers/user/user.actions";
+import { userSignInAsync } from "@/store/reducers/user/user.reducerRT";
 import './sign-in.styles.scss';
 import { selectCurrentUser } from "@/store/reducers/user/user.selector";
 import { useAppDispatch } from "@/hooks/hooks";
@@ -16,8 +19,9 @@ const defaultSignInFields = {
 
 const SignIn: React.FC = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate()
   const currentUser = useSelector(selectCurrentUser)
-  console.log(currentUser)
+  //console.log(currentUser)
   const [signInFields, setSignInFields] = useState(defaultSignInFields);
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
@@ -28,7 +32,8 @@ const SignIn: React.FC = () => {
   const onSubmitHandler = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!email || !password) return;
-    dispatch(userSignInAsync(email, password));
+    dispatch(userSignInAsync({email, password}));
+
     return setSignInFields(defaultSignInFields);
   }
 
@@ -57,6 +62,12 @@ const SignIn: React.FC = () => {
 
     return  (setSignInFields({...signInFields, [name]: value}))
   }
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/')
+    }
+  } , [currentUser])
 
   return (
     <div className="sign-in">
@@ -104,7 +115,7 @@ const SignIn: React.FC = () => {
             </div>
             <div className="sign-in__button">
               <div className="sign-in__check">
-                <FormInput 
+                <RadioInput 
                   type="checkbox"
                   label="Remember me"
                   htmlFor="marketing"

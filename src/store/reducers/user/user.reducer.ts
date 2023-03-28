@@ -16,11 +16,14 @@ const INITIAL_STATE: UserState = {
     error: null,
 }
 
+
+
 export const UserReducer = (state = INITIAL_STATE, action: AnyAction): UserState => {
 
     switch(action.type) {
         case USERTYPES.USER_SIGNIN_START :
         case USERTYPES.USER_SIGNUP_START :
+        case USERTYPES.USER_SIGNOUT_START :
             return {...state, isLoading: true};
 
         case USERTYPES.USER_SIGNUP_SUCCESS :
@@ -29,8 +32,12 @@ export const UserReducer = (state = INITIAL_STATE, action: AnyAction): UserState
         case USERTYPES.USER_SIGNIN_SUCCESS :
             return {...state, isLoading: false, currentUser: action.payload};
 
+        case USERTYPES.USER_SIGNOUT_SUCCESS :
+            return {...state, isLoading: false, currentUser: null}
+
         case USERTYPES.USER_SIGNIN_FAILED :
         case USERTYPES.USER_SIGNUP_FAILED :
+        case USERTYPES.USER_SIGNOUT_FAILED :
             return {...state, isLoading: false, error: action.payload};
 
         // case USERTYPES.SET_CURRENT_USER :

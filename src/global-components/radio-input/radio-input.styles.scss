@@ -1,0 +1,83 @@
+.radio-container {
+    width: auto;
+    color: var(--black-color);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+
+    &__input-label { 
+        //position: absolute;
+        display: block;
+        font-size: 14px;
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    &__input {
+        //appearance: none;
+        position: absolute;
+        visibility: hidden;
+    }
+
+    &__custom-check {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        position: relative;
+        border: 1px solid var(--grey-grade3);
+        padding: 5px;
+        //margin-right: 18px;
+
+        &:hover {
+            border-color:  var(--green-color);
+        }
+    }
+
+    &__check {
+        display: none;
+    }
+
+    &:has(input[type='radio']) &__custom-check {
+        border-radius: 50%;
+    }
+
+    &:has(input[type='radio']:checked) &__custom-check {
+        border-radius: 50%;
+        background-color: var(--green-color);
+        border: none;
+
+        &::after {
+            content: '';
+            background-color: var(--white-color);
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            border-radius: 50%;
+            top: 25%;
+            left: 25%;
+        }
+    }
+
+    &:has(input[type='checkbox']) &__custom-check {
+        border-radius: 3px;
+        //width: 23px;
+        
+    }
+
+    &:has(input[type='checkbox']:checked) &__check {
+        display: block;
+        color: var(--white-color);
+        position: absolute;
+        top: 15%;
+        left: 8%;
+    }
+
+    &:has(input[type='checkbox']:checked)  &__custom-check {
+        background-color: var(--green-color);
+        border: none;
+    }
+}
+

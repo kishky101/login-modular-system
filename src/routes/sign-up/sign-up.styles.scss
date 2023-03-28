@@ -96,6 +96,7 @@
 
         &--radios {
             margin-top: -0.8rem;
+            margin-bottom: 32px;
         }
     }
 
@@ -108,7 +109,7 @@
         display: grid;
         grid-template-columns: 189px 110px 119px;
         gap: 12px;
-        margin-top: -1rem;
+        margin-top: -1.5rem;
         align-items: center;
     }
 
@@ -123,12 +124,12 @@
     }
 
     &__radios {
-        display: grid;
-        grid-template-columns: 69px 82px 108px 75px;
-        grid-template-rows: repeat(2, 38px);
+        display: flex;
+        flex-wrap: wrap;
         white-space: nowrap;
         column-gap: 24px;
-        margin-top: -1.4rem;
+        row-gap: 18px;
+        margin-top: 1rem;
     }
 
     &__marketing {
@@ -136,6 +137,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        position: relative;
+        left: 14px;
+        margin-top: -.5rem;
+        //max-width: 432px;
     }
 
     &__p {
@@ -199,11 +204,6 @@
             grid-template-columns: 135px 92px 92px;
         }
 
-        &__radios {
-            display: grid;
-            grid-template-columns: 69px 82px 108px;
-            grid-template-rows: repeat(2, 38px);
-        }
 
         &__p {
             margin-bottom: 2rem;
