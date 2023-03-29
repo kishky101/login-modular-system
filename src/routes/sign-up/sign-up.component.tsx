@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "@/hooks/hooks";
 import { useSelector } from "react-redux";
@@ -33,8 +33,10 @@ const SignUp: React.FC = () => {
   //     console.log(createUserDocumentFromAuth(user, 'users').then(us => console.log(us)))
   //   }
   // })
+  const buttonRef = useRef<HTMLDivElement>(null)
   const navigate = useNavigate();
   const currentUser = useSelector(selectCurrentUser);
+  const [disabled, setDisabled] = useState(true)
   const [signUpFields, setSignUpFields] = useState(defaultSignUpFields);
   const [emailError, setEmailError] = useState('');
   const [confirmEmailError, setConfirmEmailError] = useState('');
@@ -132,6 +134,16 @@ const SignUp: React.FC = () => {
       navigate('/')
     }
   } , [currentUser])
+
+  useEffect(() => {
+    if (!email || !confirmEmail || !password || !profileName || !month || !day || !year || !gender) {
+      setDisabled(true)
+    }else if (email && confirmEmail && password && profileName && month && day && year && gender) {
+      setDisabled(false)
+    }
+  }, [email, confirmEmail, password, profileName, month, day, year, gender,])
+    
+    
 
   return (
     <div className="sign-up">
@@ -287,8 +299,8 @@ const SignUp: React.FC = () => {
               <p className="sign-up__agree">By clicking on sign-up you agree to spotify&apos;s <a href="#" className="sign-up__agree--link">Terms and Conditions of Use</a>.</p>
               <p className="sign-up__terms">To learn more about how. Spotify collects, uses, shares and protects your personal data, please see <a href="#" className="sign-up__terms--link">Spotify’s Privacy Policy</a>.</p>
             </div>
-            <div className="sign-up__button">
-              <Button type="submit" buttonType="sign-in">Sign up</Button>
+            <div className="sign-up__button" ref={buttonRef}>
+              <Button type="submit" disabled={disabled} buttonType="sign-in">Sign up</Button>
             </div>
           </form>
           <p className="sign-up__redirect">Have an account? <Link to='/sign-in' className="sign-up__redirect--link">Log in</Link></p>

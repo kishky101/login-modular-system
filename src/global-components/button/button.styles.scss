@@ -9,7 +9,7 @@
     &__button {
         border: none;
         padding: 1em 3em;
-        background-color: transparent;
+        background-color: var(--white-color);
         border-radius: 50px;
         border: 1px solid var(--grey-grade1);
         width: 100%;
@@ -23,16 +23,44 @@
         cursor: pointer;
 
 
+        &:hover {
+            background-color: var(--white-color-hover);
+        }
+
+        &:disabled {
+            background-color: var(--grey-grade3);
+        }
+
+
+
         &--facebook {
             background-color: var(--blue-color);
             color: var(--white-color);
             border: none;
+
+            &:not(:disabled) {
+                &:hover {
+                    background-color: var(--blue-color-hover);
+                }
+    
+                &:focus {
+                    background-color: var(--blue-color-pressed);
+                }
+            }
         }
 
         &--apple {
-            background-color: var(--black-color);
+            background-color: var(--apple-black);
             color: var(--white-color);
             border: none;
+
+            &:hover {
+                background-color: var(--apple-black-hover);
+            }
+
+            &:focus {
+                background-color: var(--apple-black-pressed);
+            }
         }
 
         &--sign-in {
@@ -42,6 +70,16 @@
             border: none;
             width: auto;
             white-space: nowrap;
+
+            &:not(:disabled) {
+                &:hover {
+                    background-color: var(--green-color-hover);
+                }
+    
+                &:focus {
+                    background-color: var(--green-color);
+                }
+            }
         }
     }
 

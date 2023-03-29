@@ -20,7 +20,8 @@ const defaultSignInFields = {
 const SignIn: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate()
-  const currentUser = useSelector(selectCurrentUser)
+  const currentUser = useSelector(selectCurrentUser);
+  const [disabled, setDisabled] = useState(false)
   //console.log(currentUser)
   const [signInFields, setSignInFields] = useState(defaultSignInFields);
   const [emailError, setEmailError] = useState('');
@@ -68,6 +69,14 @@ const SignIn: React.FC = () => {
       navigate('/')
     }
   } , [currentUser])
+
+  useEffect(() => {
+    if (!email || !password) {
+      setDisabled(true)
+    }else if (email && password) {
+      setDisabled(false)
+    }
+  }, [email, password])
 
   return (
     <div className="sign-in">
@@ -124,7 +133,7 @@ const SignIn: React.FC = () => {
                   onChange={onChangeHandler}
                 />
               </div>
-              <Button type="submit" buttonType="sign-in">Sign in</Button>
+              <Button type="submit" disabled = {disabled} buttonType="sign-in">Sign in</Button>
             </div>
           </form>
           <span className="sign-in__divider2"></span>
