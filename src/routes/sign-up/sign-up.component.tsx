@@ -42,8 +42,8 @@ const SignUp: React.FC = () => {
   const [dayError, setDayError] = useState('');
   const [genderError, setGenderError] = useState('');
   const [yearError, setYearError] = useState('');
-  //const [monthError, setMonthError] = useState('');
   const dispatch = useAppDispatch();
+
   const {  
     email,
     confirmEmail,
@@ -53,7 +53,8 @@ const SignUp: React.FC = () => {
     day,
     year,
     gender,
- } = signUpFields;
+  } = signUpFields;
+
 
   const onSubmitHandler = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -63,10 +64,6 @@ const SignUp: React.FC = () => {
 
     if (email !== confirmEmail) {
       alert('email doesn\'t match')
-    }
-
-    if (month === "") {
-      alert('choose a valid month')
     }
 
     if (!gender) {
@@ -165,9 +162,6 @@ const SignUp: React.FC = () => {
     navigate('/sign-in')
   }
 
-  // useEffect(() => {
-   
-  // }, [signupSuccess]) 
   return (
     <div className="sign-up">
       <div className="sign-up__container">

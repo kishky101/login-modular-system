@@ -31,7 +31,6 @@ const SignIn: React.FC = () => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   
-
   const { email, password } = signInFields;
 
 
@@ -42,6 +41,7 @@ const SignIn: React.FC = () => {
 
     return setSignInFields(defaultSignInFields);
   }
+  
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
