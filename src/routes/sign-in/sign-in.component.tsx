@@ -12,6 +12,8 @@ import './sign-in.styles.scss';
 import { selectCurrentUser, selectError } from "@/store/reducers/user/user.selector";
 import { useAppDispatch } from "@/hooks/hooks";
 import apple from '../../assets/images/apple.svg'
+import facebook from '../../assets/images/facebook.svg'
+import google from '../../assets/images/google.svg'
 
 const defaultSignInFields = {
   email: '',
@@ -95,9 +97,9 @@ const SignIn: React.FC = () => {
         </header>
         <h3 className="sign-in__h3">Please sign in to Spotify to continue.</h3>
         <div className="sign-in__buttons">
-          <Button buttonType="facebook" ><img src="./src/assets/images/facebook.svg" /> Sign up with Facebook</Button>
+          <Button buttonType="facebook" ><img src={facebook} /> Sign up with Facebook</Button>
           <Button buttonType="apple" ><img src={apple} /> Sign up with Apple</Button>
-          <Button ><img src="./src/assets/images/google.svg" /> Sign up with Google</Button>
+          <Button ><img src={google} /> Sign up with Google</Button>
         </div>
         <div className="sign-in__dividers">
           <span className="sign-in__divider"></span> or <span className="sign-up__divider"></span>

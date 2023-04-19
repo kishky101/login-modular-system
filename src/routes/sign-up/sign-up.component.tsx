@@ -10,6 +10,8 @@ import SelectInput from "@/global-components/select-input/select-input.component
 import RadioInput from "@/global-components/radio-input/radio-input.component";
 import Error from "@/global-components/error/error.component";
 import { userSignUpAsync } from "@/store/reducers/user/user.reducerRT";
+import google from '../../assets/images/google.svg'
+import facebook from '../../assets/images/facebook.svg'
 import './sign-up.styles.scss';
 
 
@@ -174,8 +176,8 @@ const SignUp: React.FC = () => {
         </header>
         <h2 className="sign-up__h2">Sign up for free to start listening.</h2>
         <div className="sign-up__buttons">
-          <Button buttonType="facebook" ><img src="./src/assets/images/facebook.svg" /> Sign up with Facebook</Button>
-          <Button ><img src="./src/assets/images/google.svg" /> Sign up with Google</Button>
+          <Button buttonType="facebook" ><img src={facebook} /> Sign up with Facebook</Button>
+          <Button ><img src={google} /> Sign up with Google</Button>
         </div>
         <div className="sign-up__dividers">
           <span className="sign-up__divider"></span> or <span className="sign-up__divider"></span>
