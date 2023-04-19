@@ -82,7 +82,7 @@ const SignIn: React.FC = () => {
 
   if (error) {
     return (
-      <Error name={error.name} message={error.message} url="sign-in" />
+      <Error name={error.name} message={error.message} />
     )
   }
 
@@ -94,9 +94,9 @@ const SignIn: React.FC = () => {
         </header>
         <h3 className="sign-in__h3">Please sign in to Spotify to continue.</h3>
         <div className="sign-in__buttons">
-          <Button buttonType="facebook" ><img src="/src/assets/images/facebook.svg" /> Sign up with Facebook</Button>
-          <Button buttonType="apple" ><img src="/src/assets/images/apple.svg" /> Sign up with Apple</Button>
-          <Button ><img src="/src/assets/images/google.svg" /> Sign up with Google</Button>
+          <Button buttonType="facebook" ><img src="./src/assets/images/facebook.svg" /> Sign up with Facebook</Button>
+          <Button buttonType="apple" ><img src="./src/assets/images/apple.svg" /> Sign up with Apple</Button>
+          <Button ><img src="./src/assets/images/google.svg" /> Sign up with Google</Button>
         </div>
         <div className="sign-in__dividers">
           <span className="sign-in__divider"></span> or <span className="sign-up__divider"></span>

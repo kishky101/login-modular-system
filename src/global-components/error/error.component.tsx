@@ -1,22 +1,20 @@
 import React from "react";
-
-import './error.styles.scss'
-import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "@/hooks/hooks";
 import { setError } from "@/store/reducers/user/user.reducerRT";
+
+import './error.styles.scss'
+
 
 type ErrorProp = {
     name: string;
     message: string;
-    url: string;
 } & Error
 
-const Error: React.FC<ErrorProp> = ({ name, message, url }) => {
-    const navigate = useNavigate()
+const Error: React.FC<ErrorProp> = ({ name, message }) => {
+
     const dispatch = useAppDispatch();
     const refresh =() => {
         dispatch(setError(null))
-        //navigate(`/${url}`)
     }
     return (
         <div className="error">
