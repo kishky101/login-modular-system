@@ -1,5 +1,5 @@
 //import {legacy_createStore as createStore, compose, applyMiddleware} from 'redux';
-import logger from 'redux-logger';
+//import logger from 'redux-logger';
 import { RootReducer } from './rootReducer';
 //import thunk from 'redux-thunk';
 import {configureStore} from '@reduxjs/toolkit'
@@ -21,7 +21,7 @@ export type RootState = ReturnType<typeof RootReducer>
 
 export const store = configureStore({
     reducer: RootReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-        serializableCheck: false
-    }).concat(logger)
+    // middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    //     serializableCheck: false
+    // }).concat(logger)
 })
