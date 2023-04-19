@@ -1,0 +1,27 @@
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    &__box {
+        border: 1px solid var(--red-color);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    &__h3 {
+        color: var(--red-color);
+        margin-bottom: 15px;
+    }
+
+    &__button {
+        padding: 5px 10px;
+        background-color: var(--red-color);
+        border: none;
+        border-radius: 5px;
+        color: var(--white-color);
+        margin-top: 15px;
+        float: right;
+    }
+}

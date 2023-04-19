@@ -2,17 +2,16 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "@/hooks/hooks";
 import { useSelector } from "react-redux";
-import { selectCurrentUser } from "@/store/reducers/user/user.selector";
+import { selectCurrentUser, selectError, selectSignupSuccess } from "@/store/reducers/user/user.selector";
 import Logo from "@/global-components/logo/logo.component";
 import Button from "@/global-components/button/button.component";
 import FormInput from "@/global-components/form-input/form-input.component";
 import SelectInput from "@/global-components/select-input/select-input.component";
 import RadioInput from "@/global-components/radio-input/radio-input.component";
-//import { userSignUpAsync } from "@/store/reducers/user/user.actions";
+import Error from "@/global-components/error/error.component";
 import { userSignUpAsync } from "@/store/reducers/user/user.reducerRT";
 import './sign-up.styles.scss';
 
-//import { getCurrentUser, createUserDocumentFromAuth } from "@/utils/firebase/firebase.utils";
 
 const defaultSignUpFields = {
   email: '',
@@ -27,15 +26,12 @@ const defaultSignUpFields = {
 }
 
 const SignUp: React.FC = () => {
-  const months = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-  // getCurrentUser().then(user => {
-  //   if (user) {
-  //     console.log(createUserDocumentFromAuth(user, 'users').then(us => console.log(us)))
-  //   }
-  // })
+  const months = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const buttonRef = useRef<HTMLDivElement>(null)
   const navigate = useNavigate();
   const currentUser = useSelector(selectCurrentUser);
+  const error = useSelector(selectError);
+  const signupSuccess = useSelector(selectSignupSuccess)
   const [disabled, setDisabled] = useState(true)
   const [signUpFields, setSignUpFields] = useState(defaultSignUpFields);
   const [emailError, setEmailError] = useState('');
@@ -44,6 +40,7 @@ const SignUp: React.FC = () => {
   const [dayError, setDayError] = useState('');
   const [genderError, setGenderError] = useState('');
   const [yearError, setYearError] = useState('');
+  //const [monthError, setMonthError] = useState('');
   const dispatch = useAppDispatch();
   const {  
     email,
@@ -58,9 +55,21 @@ const SignUp: React.FC = () => {
 
   const onSubmitHandler = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if ( !email || !confirmEmail || !password || !profileName || !month || !day || !year || !gender ) return 
+    if ( !email || !confirmEmail || !password || !profileName || !month || !day || !year || !gender ) {
+      alert('all fields are required')
+    }
 
-    if (email !== confirmEmail) return
+    if (email !== confirmEmail) {
+      alert('email doesn\'t match')
+    }
+
+    if (month === "") {
+      alert('choose a valid month')
+    }
+
+    if (!gender) {
+      setGenderError('choose your gender')
+    }
 
     const dob = `${month}, ${day} ${year}`
 
@@ -70,7 +79,8 @@ const SignUp: React.FC = () => {
       profileName
     }
 
-    dispatch(userSignUpAsync({email, password, additonalDetails}))
+    await dispatch(userSignUpAsync({email, password, additonalDetails}))
+  
     return setSignUpFields(defaultSignUpFields);
   }
 
@@ -143,8 +153,19 @@ const SignUp: React.FC = () => {
     }
   }, [email, confirmEmail, password, profileName, month, day, year, gender,])
     
-    
+  if (error) {
+    return (
+      <Error name={error.name} message={error.message} url="sign-up"/>
+    )
+  }
 
+  if (signupSuccess) {
+    navigate('/sign-in')
+  }
+
+  // useEffect(() => {
+   
+  // }, [signupSuccess]) 
   return (
     <div className="sign-up">
       <div className="sign-up__container">
@@ -283,6 +304,7 @@ const SignUp: React.FC = () => {
                   onChange={onChangeHandler}
                 />
               </div>
+              <span>{genderError}</span>
             </fieldset>
             <div className="sign-up__marketing">
               <RadioInput 

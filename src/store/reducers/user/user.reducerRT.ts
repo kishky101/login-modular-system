@@ -7,12 +7,14 @@ import { AdditionalInfo, createUserDocumentFromAuth, createAuthUserFromEmailAndP
 export type UserState = {
     readonly currentUser: UserData | null;
     readonly isLoading: boolean;
-    readonly error: Error | null;
+    readonly signupSuccess: boolean;
+    error: Error | null;
 }
 
 const INITIAL_STATE: UserState = {
     currentUser: null,
     isLoading: false,
+    signupSuccess: false,
     error: null,
 }
 
@@ -39,7 +41,9 @@ export const userSignInAsync = createAsyncThunk('user/sign-in', async ({email, p
 export const userSignUpAsync = createAsyncThunk('user/sign-up', async ({email, password, additonalDetails}: UserSignUp, thunkAPI) => {
     const userCredentials = await createAuthUserFromEmailAndPassword(email, password);
     if (userCredentials) {
-         await createUserDocumentFromAuth(userCredentials?.user, 'users', additonalDetails);
+        const userSnapshot = await createUserDocumentFromAuth(userCredentials?.user, 'users', additonalDetails);
+
+        return userSnapshot?.data();
     }
 })
 
@@ -61,7 +65,9 @@ export const UserSlice = createSlice({
     name: 'user',
     initialState: INITIAL_STATE,
     reducers: {
-        
+        setError(state: UserState, action) {
+            state.error = action.payload
+        }
     },
     extraReducers(builder) {
         builder.addCase(userSignInAsync.pending, (state) => {
@@ -83,12 +89,15 @@ export const UserSlice = createSlice({
         })
         builder.addCase(userSignUpAsync.pending, (state, action) => {
             state.isLoading = true;
+            state.signupSuccess = false;
         })
         builder.addCase(userSignUpAsync.fulfilled, (state, action) => {
             state.isLoading = false;
+            state.signupSuccess = true;
         })
         builder.addCase(userSignUpAsync.rejected, (state, action) => {
             state.isLoading = false;
+            state.signupSuccess = false;
             if (action.payload) {
                 state.error = action.payload as Error;
             }else {
@@ -130,5 +139,7 @@ export const UserSlice = createSlice({
     },
 })
 
+export const { setError } = UserSlice.actions
+ 
 
 export const UserReducer = UserSlice.reducer;

@@ -6,11 +6,12 @@ import Logo from "@/global-components/logo/logo.component";
 import Button from "@/global-components/button/button.component";
 import RadioInput from "@/global-components/radio-input/radio-input.component";
 import FormInput from "@/global-components/form-input/form-input.component";
-//import { userSignInAsync } from "@/store/reducers/user/user.actions";
+import Error from "@/global-components/error/error.component";
 import { userSignInAsync } from "@/store/reducers/user/user.reducerRT";
 import './sign-in.styles.scss';
-import { selectCurrentUser } from "@/store/reducers/user/user.selector";
+import { selectCurrentUser, selectError } from "@/store/reducers/user/user.selector";
 import { useAppDispatch } from "@/hooks/hooks";
+
 const defaultSignInFields = {
   email: '',
   password: '',
@@ -19,16 +20,17 @@ const defaultSignInFields = {
 
 const SignIn: React.FC = () => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const currentUser = useSelector(selectCurrentUser);
-  const [disabled, setDisabled] = useState(false)
-  //console.log(currentUser)
+  const error = useSelector(selectError);
+  const [disabled, setDisabled] = useState(false);
   const [signInFields, setSignInFields] = useState(defaultSignInFields);
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   
 
   const { email, password } = signInFields;
+
 
   const onSubmitHandler = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -76,7 +78,13 @@ const SignIn: React.FC = () => {
     }else if (email && password) {
       setDisabled(false)
     }
-  }, [email, password])
+  }, [email, password]);
+
+  if (error) {
+    return (
+      <Error name={error.name} message={error.message} url="sign-in" />
+    )
+  }
 
   return (
     <div className="sign-in">
