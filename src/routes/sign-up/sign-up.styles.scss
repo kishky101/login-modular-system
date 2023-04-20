@@ -1,5 +1,5 @@
 .sign-up {
-    max-width: 1440px;
+    max-width: var(bg-scrn);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,7 @@
     margin-bottom: 78px;
 
     &__container {
-        max-width: 442px;
+        max-width: var(--bg-scrn-cont);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -127,7 +127,7 @@
         display: flex;
         flex-wrap: wrap;
         white-space: nowrap;
-        column-gap: 24px;
+        column-gap: 25px;
         row-gap: 18px;
         margin-top: 1rem;
     }
@@ -139,7 +139,6 @@
         align-items: center;
         position: relative;
         left: 14px;
-        margin-top: -.5rem;
         //max-width: 432px;
     }
 
@@ -193,7 +192,7 @@
 
     @media screen and (max-width: 476px) {
         &__container {
-            max-width: 343px;
+            max-width: var(--sm-scrn-cont);
         }
 
         &__divider {

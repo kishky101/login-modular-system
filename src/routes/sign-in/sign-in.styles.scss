@@ -1,5 +1,5 @@
 .sign-in {
-    max-width: 1440px;
+    max-width: var(--bg-scrn);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,7 @@
     margin-bottom: 78px;
 
     &__container {
-        max-width: 442px;
+        max-width: var(--bg-scrn-cont);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -95,7 +95,7 @@
         justify-content: space-between;
         align-items: flex-start;
         margin-bottom: 32px;
-        max-width: 442px;
+        max-width: var(--bg-scrn-cont);
     }
 
     &__check {
@@ -136,7 +136,7 @@
 
     @media screen and (max-width: 476px) {
         &__container {
-            max-width: 343px;
+            max-width: var(--sm-scrn-cont);
         }
 
         &__logo {
@@ -152,17 +152,17 @@
         }
 
         &__profile {
-            max-width: 343px;
+            max-width: var(--sm-scrn-cont);
         }
 
         &__button {
-            max-width: 343px;
+            max-width: var(--sm-scrn-cont);
             position: relative;
             left: 3rem;
         }
 
         &__divider2 {
-            max-width: 343px;
+            max-width: var(--sm-scrn-cont);
             width: 100%;
         }
     }

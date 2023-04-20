@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Logo from "@/global-components/logo/logo.component";
 import Button from "@/global-components/button/button.component";
-import RadioInput from "@/global-components/radio-input/radio-input.component";
 import FormInput from "@/global-components/form-input/form-input.component";
 import Error from "@/global-components/error/error.component";
 import { userSignInAsync } from "@/store/reducers/user/user.reducerRT";
@@ -14,6 +13,8 @@ import { useAppDispatch } from "@/hooks/hooks";
 import apple from '../../assets/images/apple.svg'
 import facebook from '../../assets/images/facebook.svg'
 import google from '../../assets/images/google.svg'
+
+import Checkbox from "@/global-components/checkboxes/checkboxes.component";
 
 const defaultSignInFields = {
   email: '',
@@ -135,7 +136,7 @@ const SignIn: React.FC = () => {
             </div>
             <div className="sign-in__button">
               <div className="sign-in__check">
-                <RadioInput 
+                <Checkbox 
                   type="checkbox"
                   label="Remember me"
                   htmlFor="marketing"

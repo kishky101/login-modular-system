@@ -85,7 +85,6 @@
 
     @media screen and (max-width: 476px) {
             //width: 343px;
-            max-width: 343px;
+            max-width: var(--sm-scrn-cont);
     }
-
 }

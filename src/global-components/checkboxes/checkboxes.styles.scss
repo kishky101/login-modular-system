@@ -1,0 +1,120 @@
+.checkbox-labeling {
+    display: block;
+    position: relative;
+    padding-left: 36px;
+    margin-bottom: 0px;
+    color: var(--black-color);
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &__checkbox {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        &:checked {
+            ~ .checkbox-labeling__checkmark {
+                background-color: var(--green-color);
+                border: none;
+
+                &::after {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &__checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        border: 2px solid var(--grey-grade2);
+        border-radius: 5px;
+        //background-color: #eee;
+
+        &:hover {
+            border-color: var(--green-color);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+}
+
+
+.radio-labeling {
+    display: block;
+    position: relative;
+    padding-left: 36px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &__checkbox {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        
+        &:checked {
+            ~ .radio-labeling__checkmark {
+                background-color: var(--green-color);
+                border: none;
+
+                &::after {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &__checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        border: 2px solid var(--grey-grade2);
+        //background-color: #eee;
+
+        &:hover {
+            border-color: var(--green-color);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 5px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--white-color);
+        }
+    }
+}

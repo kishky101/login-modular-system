@@ -2,8 +2,7 @@
     width: 100%;
     margin: 1rem 0 0 0;
     font-family: var(--lato-font);
-    max-width: 442px;
-    //width: 442px;
+    max-width: var(--bg-scrn-cont);
 
     &__input-label {
         width: 100%;
@@ -40,7 +39,7 @@
 
     &__input-container {
         position: relative;
-        max-width: 442px;
+        max-width: var(--bg-scrn-cont);
     }
 
     &__error {
@@ -52,7 +51,7 @@
 
 
     @media screen and (max-width: 476px) {
-        max-width: 343px;
+        max-width: var(--sm-scrn-cont);
 
 
         &__input {

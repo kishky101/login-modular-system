@@ -7,12 +7,13 @@ import Logo from "@/global-components/logo/logo.component";
 import Button from "@/global-components/button/button.component";
 import FormInput from "@/global-components/form-input/form-input.component";
 import SelectInput from "@/global-components/select-input/select-input.component";
-import RadioInput from "@/global-components/radio-input/radio-input.component";
 import Error from "@/global-components/error/error.component";
 import { userSignUpAsync } from "@/store/reducers/user/user.reducerRT";
 import google from '../../assets/images/google.svg'
 import facebook from '../../assets/images/facebook.svg'
 import './sign-up.styles.scss';
+
+import Checkbox from "@/global-components/checkboxes/checkboxes.component";
 
 
 const defaultSignUpFields = {
@@ -259,7 +260,7 @@ const SignUp: React.FC = () => {
             <fieldset className="sign-up__fieldset sign-up__fieldset--radios">
               <legend className="sign-up__legend">What&apos;s your gender</legend>
               <div className="sign-up__radios">
-                <RadioInput 
+                <Checkbox 
                   type="radio"
                   label="Male"
                   name="gender"
@@ -267,7 +268,7 @@ const SignUp: React.FC = () => {
                   value="male"
                   onChange={onChangeHandler}
                 />
-                <RadioInput 
+                <Checkbox 
                   type="radio"
                   label="Female"
                   name="gender"
@@ -275,7 +276,7 @@ const SignUp: React.FC = () => {
                   value="female"
                   onChange={onChangeHandler}
                 />
-                <RadioInput 
+                <Checkbox 
                   type="radio"
                   label="Non-binary"
                   name="gender"
@@ -283,7 +284,7 @@ const SignUp: React.FC = () => {
                   value="non-binary"
                   onChange={onChangeHandler}
                 />
-                <RadioInput 
+                <Checkbox 
                   type="radio"
                   label="Other"
                   name="gender"
@@ -291,7 +292,7 @@ const SignUp: React.FC = () => {
                   value="other"
                   onChange={onChangeHandler}
                 />
-                <RadioInput 
+                <Checkbox 
                   type="radio"
                   label="Prefer not to say"
                   name="gender"
@@ -303,7 +304,7 @@ const SignUp: React.FC = () => {
               <span>{genderError}</span>
             </fieldset>
             <div className="sign-up__marketing">
-              <RadioInput 
+              <Checkbox 
                 type="checkbox"
                 label="Share my registration date with Spotify’s content providers for marketing purposes."
                 htmlFor="marketing"

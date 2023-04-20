@@ -3,11 +3,9 @@ import Button from "@/global-components/button/button.component";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { selectCurrentUser, selectIsLoading } from "@/store/reducers/user/user.selector";
-//import { userSignOutAsync } from "@/store/reducers/user/user.actions";
 import { userSignOutAsync } from "@/store/reducers/user/user.reducerRT";
 import { useAppDispatch } from "@/hooks/hooks";
 import Spinner from "@/global-components/spinner/spinner.component";
-
 import './home.styles.scss';
 
 
