@@ -6,6 +6,7 @@
     color: var(--black-color);
     cursor: pointer;
     font-size: 14px;
+    //font-weight: 900px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -36,7 +37,7 @@
         left: 0;
         height: 20px;
         width: 20px;
-        border: 2px solid var(--grey-grade2);
+        border: 1.5px solid var(--grey-grade2);
         border-radius: 5px;
         //background-color: #eee;
 
@@ -65,14 +66,20 @@
 .radio-labeling {
     display: block;
     position: relative;
-    padding-left: 36px;
+    padding-left: 37px;
     margin-bottom: 0px;
     cursor: pointer;
     font-size: 14px;
+    height: 20px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    span {
+        display: inline-block;
+        margin-top: 1px;
+    }
 
     &__checkbox {
         position: absolute;
@@ -98,7 +105,7 @@
         height: 20px;
         width: 20px;
         border-radius: 50%;
-        border: 2px solid var(--grey-grade2);
+        border: 1.5px solid var(--grey-grade2);
         //background-color: #eee;
 
         &:hover {

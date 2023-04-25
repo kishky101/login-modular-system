@@ -11,7 +11,7 @@
         padding: 1em 3em;
         background-color: var(--white-color);
         border-radius: 50px;
-        border: 1px solid var(--grey-grade1);
+        border: 2px solid var(--grey-grade2);
         width: 100%;
         font-weight: 700;
         color: var(--grey-grade1);
@@ -29,6 +29,7 @@
 
         &:disabled {
             background-color: var(--grey-grade3);
+            cursor: default;
         }
 
 

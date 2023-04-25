@@ -183,8 +183,8 @@ const SignUp: React.FC = () => {
             <div className="sign-up__text-input">
               <FormInput 
                 type="email"
-                label="What is your email?"
-                placeholder="Enter your email"
+                label="What's your email?"
+                placeholder="Enter you email"
                 htmlFor="email"
                 name="email"
                 value={email}
@@ -258,7 +258,7 @@ const SignUp: React.FC = () => {
               </div>
             </fieldset>
             <fieldset className="sign-up__fieldset sign-up__fieldset--radios">
-              <legend className="sign-up__legend">What&apos;s your gender</legend>
+              <legend className="sign-up__legend">What&apos;s your date of birth?</legend>
               <div className="sign-up__radios">
                 <Checkbox 
                   type="radio"

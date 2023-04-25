@@ -17,7 +17,7 @@ const Checkbox: React.FC<CheckboxProps> = ({type, htmlFor, label, ...otherProps}
 
     return (
         <>
-            <label htmlFor={htmlFor} className={`${value}-labeling`} >{label}
+            <label htmlFor={htmlFor} className={`${value}-labeling`} ><span>{label}</span>
                 <input id={htmlFor} type={type} className={`${value}-labeling__checkbox`} {...otherProps} />
                 <span className={`${value}-labeling__checkmark`}></span>
             </label>

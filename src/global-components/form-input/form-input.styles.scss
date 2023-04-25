@@ -3,12 +3,16 @@
     margin: 1rem 0 0 0;
     font-family: var(--lato-font);
     max-width: var(--bg-scrn-cont);
+    display: flex;
+    flex-direction: column;
+    //align-items: flex-start;
 
     &__input-label {
-        width: 100%;
+        width: auto;
         color: var(--black-color);
         font-weight: 700;
         font-size: 14px;
+        line-height: 16.8px;
     }
 
     &__input {
@@ -43,7 +47,7 @@
     }
 
     &__error {
-        width: 100%;
+        width: auto;
         color: var(--red-color);
         font-weight: 700;
         font-size: 14px;

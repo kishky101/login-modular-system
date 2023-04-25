@@ -20,7 +20,9 @@
     }
 
     &__h2 {
+        font-weight: 700;
         font-size: 36px;
+        line-height: 43.2px;
         font-family: var(--lato-font);
         margin-bottom: 50px;
         text-align: center;
@@ -33,6 +35,7 @@
         flex-direction: column;
         justify-content: center;
         gap: 18px;
+        padding-left: .1rem;
     }
 
     &__form {
@@ -40,6 +43,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding-top: 2px;
     }
 
     &__form-fields {
@@ -47,25 +51,30 @@
     }
 
     &__dividers {
+        max-width: 433px;
         width: 100%;
         margin: 32px 0;
         color: var(--grey-grade3);
-        font-size: 18px;
+        font-size: 16px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 24px;
     }
 
     &__divider {
         display: inline-block;
-        width: 41%;
-        border: .1px solid var(--grey-grade3);
+        width: 185px;
+        border-top: 1px solid var(--grey-grade3);
         border-radius: 50px;
 
-        &:first-of-type {
-            margin-right: 24px;
-        }
+        // &:first-of-type {
+        //     margin-right: 24px;
+        // }
 
-        &:last-of-type {
-            margin-left: 24px;
-        }
+        // &:last-of-type {
+        //     margin-left: 24px;
+        // }
     }
 
     &__h3 {
@@ -80,11 +89,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding-left: 0rem;
     }
 
     &__profile {
         display: block;
         margin-bottom: 2rem;
+        margin-top: 1px;
         color: var(--black-color);
         font-size: 14px;
         width: 95%;
@@ -93,9 +104,10 @@
     &__fieldset {
         border: none;
         color: var(--black-color);
+        margin-top: 2px;
 
         &--radios {
-            margin-top: -0.8rem;
+            margin-top: -.6rem;
             margin-bottom: 32px;
         }
     }
@@ -103,6 +115,7 @@
     &__legend {
         font-weight: 700;
         font-size: 14px;
+        //margin-top: 9px;
     }
 
     &__date {
@@ -114,13 +127,15 @@
     }
 
     &__select {
-        margin: 2rem 0;
+        margin: 2.1rem 0;
+        //width: 189px;
     }
 
     &__month {
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         font-size: 14px;
         font-weight: 700;
+        margin-top: 3px;
     }
 
     &__radios {
@@ -129,7 +144,7 @@
         white-space: nowrap;
         column-gap: 25px;
         row-gap: 18px;
-        margin-top: 1rem;
+        margin-top: .5rem;
     }
 
     &__marketing {
@@ -138,12 +153,15 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        left: 14px;
+        left: 13px;
+        top: -4px;
+        //font-weight: 800px;
         //max-width: 432px;
     }
 
     &__p {
         width: 100%;
+        //font-weight: 700;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -154,11 +172,12 @@
         font-size: 13px;
         text-align: center;
         max-width: 424px;
-        margin: 32px 0;
-        font-weight: 500;
+        margin: 24px 0;
+        font-weight: 700;
         line-height: 15.6px;
         &--link {
             color: var(--green-color);
+            font-weight: 400;
         }
     }
 
@@ -166,11 +185,13 @@
         font-size: 13px;
         text-align: center;
         max-width: 413px;
+        margin-top: 10px;
         margin-bottom: 32px;
         font-weight: 500;
         line-height: 15.6px;
         &--link {
             color: var(--green-color);
+            font-weight: 400;
         }
     }
 
