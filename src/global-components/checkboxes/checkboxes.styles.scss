@@ -1,11 +1,13 @@
 .checkbox-labeling {
     display: block;
     position: relative;
-    padding-left: 36px;
+    padding-left: 38px;
     margin-bottom: 0px;
     color: var(--black-color);
     cursor: pointer;
     font-size: 14px;
+    line-height: 16.8px;
+    font-weight: 400;
     //font-weight: 900px;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -33,11 +35,11 @@
 
     &__checkmark {
         position: absolute;
-        top: 0;
+        top: 7px;
         left: 0;
         height: 20px;
         width: 20px;
-        border: 1.5px solid var(--grey-grade2);
+        border: 1px solid var(--grey-grade2);
         border-radius: 5px;
         //background-color: #eee;
 
@@ -100,7 +102,7 @@
 
     &__checkmark {
         position: absolute;
-        top: 0;
+        top: -2px;
         left: 0;
         height: 20px;
         width: 20px;

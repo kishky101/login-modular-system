@@ -2,18 +2,21 @@
     //width: 100%;
     height: auto;
     font-family: var(--lato-font);
-    max-width: 435px;
+    //max-width: 435px;
     display: flex;
     justify-content: center;
 
     &__button {
+        display: block;
         border: none;
         padding: 1em 3em;
         background-color: var(--white-color);
         border-radius: 50px;
-        border: 2px solid var(--grey-grade2);
+        border: 1px solid var(--grey-grade1);
         width: 100%;
         font-weight: 700;
+        font-size: 1rem;
+        line-height: 19.2px;
         color: var(--grey-grade1);
         height: 57px;
         display: flex;
@@ -71,6 +74,10 @@
             border: none;
             width: auto;
             white-space: nowrap;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 19.2px;
+            //height: 55px;
 
             &:not(:disabled) {
                 &:hover {
@@ -86,6 +93,6 @@
 
     @media screen and (max-width: 476px) {
             //width: 343px;
-            max-width: var(--sm-scrn-cont);
+            //max-width: var(--sm-scrn-cont);
     }
 }

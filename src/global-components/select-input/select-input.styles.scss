@@ -1,14 +1,14 @@
 .select-input {
-    width: auto;
+    width: 100%;
     position: relative;
     color: var(--black-color);
 
     &__label {
         width: 100%;
         height: 56px;
-        border: 1px solid var(--grey-grade1);
+        border: 1px solid var(--grey-grade2);
         padding: 1rem 2rem;
-        border-radius: 30px;
+        border-radius: 50px;
         display: flex;
         justify-content: space-between;
         align-items: center;

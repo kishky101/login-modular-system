@@ -210,16 +210,18 @@ const SignUp: React.FC = () => {
                 error={passwordError}
                 onChange={onChangeHandler}
               />
-              <FormInput 
-                type="text"
-                label="What should we call you?"
-                placeholder="Enter a profile name"
-                htmlFor="profileName"
-                name="profileName"
-                value={profileName}
-                onChange={onChangeHandler}
-              />
-              <span className="sign-up__profile">This appears on your profile.</span>
+              <div>
+                <FormInput 
+                  type="text"
+                  label="What should we call you?"
+                  placeholder="Enter a profile name"
+                  htmlFor="profileName"
+                  name="profileName"
+                  value={profileName}
+                  onChange={onChangeHandler}
+                />
+                <span className="sign-up__profile">This appears on your profile.</span>
+              </div>
             </div>
             <fieldset className="sign-up__fieldset">
               <legend className="sign-up__legend">What&apos;s your date of birth</legend>
@@ -238,7 +240,7 @@ const SignUp: React.FC = () => {
                   label="Day"
                   placeholder="DD"
                   htmlFor="day"
-                  margin="10px auto"
+                  margin="10px 0 0"
                   name="day"
                   value={day}
                   error={dayError}
@@ -249,7 +251,7 @@ const SignUp: React.FC = () => {
                   label="Year"
                   placeholder="YYY"
                   htmlFor="year"
-                  margin="10px auto"
+                  margin="10px 0 0"
                   name="year"
                   value={year}
                   error={yearError}
@@ -315,14 +317,14 @@ const SignUp: React.FC = () => {
             </div>
 
             <div className="sign-up__p">
-              <p className="sign-up__agree">By clicking on sign-up you agree to spotify&apos;s <a href="#" className="sign-up__agree--link">Terms and Conditions of Use</a>.</p>
+              <p className="sign-up__agree">By clicking on sing-up. you agree to Sporify&apos;s <a href="#" className="sign-up__agree--link">Terms and Conditions of Use</a>.</p>
               <p className="sign-up__terms">To learn more about how. Spotify collects, uses, shares and protects your personal data, please see <a href="#" className="sign-up__terms--link">Spotify’s Privacy Policy</a>.</p>
             </div>
             <div className="sign-up__button" ref={buttonRef}>
               <Button type="submit" disabled={disabled} buttonType="sign-in">Sign up</Button>
             </div>
           </form>
-          <p className="sign-up__redirect">Have an account? <Link to='/sign-in' className="sign-up__redirect--link">Log in</Link></p>
+          <p className="sign-up__redirect">Have an account? <Link to='/sign-in' className="sign-up__redirect--link">Log in</Link>.</p>
         </div>
       </div>
     </div>
