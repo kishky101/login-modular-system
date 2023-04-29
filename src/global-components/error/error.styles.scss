@@ -4,18 +4,18 @@
     align-items: center;
     height: 100vh;
 
-    &__box {
+    & &__box {
         border: 1px solid var(--red-color);
         padding: 10px;
         border-radius: 5px;
     }
 
-    &__h3 {
+    & &__h3 {
         color: var(--red-color);
         margin-bottom: 15px;
     }
 
-    &__button {
+    & &__button {
         padding: 5px 10px;
         background-color: var(--red-color);
         border: none;
