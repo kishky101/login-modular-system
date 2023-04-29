@@ -57,15 +57,15 @@ const SignIn: React.FC = () => {
         setEmailError('Enter a valid email')
       }
     }
-    if (name === 'password') {
-      const emailRegex = /[\w\d*@.]{6,}/;
-      const test = emailRegex.test(value);
-      if (test) {
-        setPasswordError('')
-      }else {
-        setPasswordError('At least six characters')
-      }
-    }
+    // if (name === 'password') {
+    //   const emailRegex = /[\w\d*@.]{6,}/;
+    //   const test = emailRegex.test(value);
+    //   if (test) {
+    //     setPasswordError('')
+    //   }else {
+    //     setPasswordError('At least six characters')
+    //   }
+    // }
 
     return  (setSignInFields({...signInFields, [name]: value}))
   }
@@ -118,39 +118,43 @@ const SignIn: React.FC = () => {
                 error={emailError}
                 onChange={onChangeHandler}
               />
-              <FormInput 
-                type="password"
-                label="Password"
-                placeholder="Password"
-                htmlFor="password"
-                name="password"
-                value={password}
-                error={passwordError}
-                onChange={onChangeHandler}
-              />
-              <span className="sign-in__profile">Do you not remember the password?</span>
+              <div>
+                <FormInput 
+                  type="password"
+                  label="Password"
+                  placeholder="Password"
+                  htmlFor="password"
+                  name="password"
+                  value={password}
+                  error={passwordError}
+                  onChange={onChangeHandler}
+                />
+                <span className="sign-in__profile">Do not you remember the password?</span>
+              </div>
             </div>
 
             <div className="sign-in__marketing">
 
             </div>
-            <div className="sign-in__button">
-              <div className="sign-in__check">
+            <div className="sign-in__check">
+              <div className="sign-in__button">
                 <Checkbox 
                   type="checkbox"
                   label="Remember me"
                   htmlFor="marketing"
                   name="remember"
                   value="Remember me"
+                  top = '0'
                   onChange={onChangeHandler}
                 />
+                <Button type="submit" disabled = {disabled} buttonType="sign-in">Sign up</Button>
               </div>
-              <Button type="submit" disabled = {disabled} buttonType="sign-in">Sign in</Button>
+              <span className="sign-in__divider2"></span>
             </div>
           </form>
-          <span className="sign-in__divider2"></span>
+          
           <div className="sign-in__redirect">
-            <p>You do not have an account yet?</p>
+            <p>You dont have an account yet?</p>
             <Link to='/sign-up'>
               <Button><span className="sign-in__redirect--opacity">Sign up for spotify</span></Button>
             </Link>

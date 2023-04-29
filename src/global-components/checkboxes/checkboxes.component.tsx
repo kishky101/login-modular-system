@@ -5,9 +5,10 @@ type CheckboxProps = {
     htmlFor: string;
     type: string;
     label: string;
+    top?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>
 
-const Checkbox: React.FC<CheckboxProps> = ({type, htmlFor, label, ...otherProps}) => {
+const Checkbox: React.FC<CheckboxProps> = ({type, htmlFor, label, top, ...otherProps}) => {
     let value;
     if (type === 'checkbox') {
         value = 'checkbox'
@@ -19,7 +20,7 @@ const Checkbox: React.FC<CheckboxProps> = ({type, htmlFor, label, ...otherProps}
         <>
             <label htmlFor={htmlFor} className={`${value}-labeling`} ><span>{label}</span>
                 <input id={htmlFor} type={type} className={`${value}-labeling__checkbox`} {...otherProps} />
-                <span className={`${value}-labeling__checkmark`}></span>
+                <span className={`${value}-labeling__checkmark`} style={{top}}></span>
             </label>
         </>
     )

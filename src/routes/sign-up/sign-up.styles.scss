@@ -72,14 +72,6 @@
         width: 42.7%;
         border-top: 1px solid var(--grey-grade3);
         border-radius: 50px;
-
-        // &:first-of-type {
-        //     margin-right: 24px;
-        // }
-
-        // &:last-of-type {
-        //     margin-left: 24px;
-        // }
     }
 
     &__h3 {
@@ -94,11 +86,11 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        //gap: 1rem;
         gap: 15px;
         margin-bottom: 2rem;
         //align-items: center;
         //padding-left: 0rem;
+        //gap: 1rem;
     }
 
     &__profile {
@@ -238,7 +230,7 @@
         }
 
         &__divider {
-            width: 39%;
+            width: 40.8%;
         }
 
         &__date {
@@ -247,13 +239,13 @@
 
 
         &__p {
-            margin: 2rem 0 17px;
+            //margin: 2rem 0 17px;
         }
 
         &__agree {
             //max-width: 278px;
             font-weight: 600;
-            margin-bottom: 17px;
+            //margin-bottom: 17px;
 
             &--link {
                 display: block;
@@ -274,7 +266,7 @@
 
 
     @media screen and (max-width: 375px) {
-        margin: 50px 0px 78px 5px;
+        //margin: 50px 0px 78px 5px;
         max-width: unset;
 
         &__container {

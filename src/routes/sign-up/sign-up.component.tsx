@@ -317,8 +317,8 @@ const SignUp: React.FC = () => {
             </div>
 
             <div className="sign-up__p">
-              <p className="sign-up__agree">By clicking on sing-up. you agree to Sporify&apos;s <a href="#" className="sign-up__agree--link">Terms and Conditions of Use</a>.</p>
-              <p className="sign-up__terms">To learn more about how. Spotify collects, uses, shares and protects your personal data, please see <a href="#" className="sign-up__terms--link">Spotify’s Privacy Policy</a>.</p>
+              <p className="sign-up__agree">By clicking on sing-up. you agree to Sporify&apos;s <a href="#" className="sign-up__agree--link">Terms and Conditions of Use.</a></p>
+              <p className="sign-up__terms">To learn more about how. Spotify collects, uses, shares and protects your personal data, please see <a href="#" className="sign-up__terms--link">Spotify’s Privacy Policy.</a></p>
             </div>
             <div className="sign-up__button" ref={buttonRef}>
               <Button type="submit" disabled={disabled} buttonType="sign-in">Sign up</Button>
