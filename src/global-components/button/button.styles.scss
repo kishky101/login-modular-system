@@ -23,6 +23,7 @@
         justify-content: center;
         align-items: center;
         gap: 20px;
+        white-space: nowrap;
         cursor: pointer;
 
 
@@ -91,8 +92,13 @@
         }
     }
 
-    @media screen and (max-width: 476px) {
-            //width: 343px;
-            //max-width: var(--sm-scrn-cont);
+    @media screen and (max-width: 300px) {
+        &__button {
+            font-size: 14px;
+
+            &--sign-in {
+                padding: 18px 30px;
+            }
+        }
     }
 }

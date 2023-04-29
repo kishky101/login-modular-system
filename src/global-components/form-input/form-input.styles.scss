@@ -1,12 +1,7 @@
 .form-input-container {
     box-sizing: border-box;
     width: 100%;
-    //margin: 1rem 0 0 0;
     font-family: var(--lato-font);
-    //max-width: var(--bg-scrn-cont);
-    // display: flex;
-    // flex-direction: column;
-    //align-items: flex-start;
 
     &__input-label {
         width: auto;
@@ -46,8 +41,6 @@
 
     &__input-container {
         box-sizing: border-box;
-        //position: relative;
-        //max-width: var(--bg-scrn-cont);
     }
 
     &__error {
@@ -59,17 +52,8 @@
 
 
     @media screen and (max-width: 476px) {
-        //max-width: var(--sm-scrn-cont);
-
-
         &__input {
             padding: 20px 24px;
         }
-    }
-
-    @media screen and (max-width: 375px) {
-        // &__input {
-        //     padding: 20px 14px;
-        // }
     }
 }

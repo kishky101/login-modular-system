@@ -5,8 +5,6 @@
     align-items: center;
     font-family: var(--lato-font);
     margin: 50px 16px 78px;
-    //argin-bottom: 78px;
-    //border: 1px solid red;
 
     &__container {
         max-width: var(--bg-scrn-cont);
@@ -15,13 +13,11 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        //border: 1px solid red;
     }
 
     &__logo {
         margin-bottom: 32px;
     }
-
 
     &__buttons {
         width: 100%;
@@ -33,23 +29,10 @@
     }
 
     &__form {
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: center;
-        // align-items: center;
-        //max-width: 442px;
         width: 100%;
     }
 
-    &__form-fields {
-        //margin-top: -1rem;
-    }
-
     &__dividers {
-        // width: 100%;
-        // margin: 32px 0;
-        // color: var(--grey-grade3);
-        // font-size: 16px;
         max-width: 433px;
         width: 100%;
         margin: 32px 0;
@@ -66,14 +49,6 @@
         width: 42.7%;
         border-top: 1px solid var(--grey-grade3);
         border-radius: 50px;
-
-        // &:first-of-type {
-        //     margin-right: 24px;
-        // }
-
-        // &:last-of-type {
-        //     margin-left: 24px;
-        // }
     }
 
     &__h3 {
@@ -86,11 +61,6 @@
     }
 
     &__text-input {
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: center;
-        // align-items: center;
-        //max-width: 442px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -100,12 +70,30 @@
 
     &__profile {
         display: block;
-        //margin-bottom: 2rem;
         color: var(--black-color);
         font-size: 14px;
         width: 100%;
         font-weight: 600;
         text-decoration: underline;
+        cursor: pointer;
+        //border: 1px solid red;
+        position: relative;
+
+        
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     //top: 0;
+        //     bottom: 0;
+        //     left: 0;
+        //     right: 0;
+        //     height: .1px;
+        //     width: 52%;
+        //     //width: 100%;
+        //     //width: max-content;
+        //     background-color: var(--black-color);
+        //     //border: 1px solid red;
+        // }
     }
 
 
@@ -114,22 +102,19 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        //margin-bottom: 32px;
         max-width: var(--bg-scrn-cont);
     }
 
     &__check {
-        // white-space: nowrap;
-        // position: relative;
-        // top: 0rem;
         display: flex;
         flex-direction: column;
         gap: 2rem;
         margin-bottom: 2rem;
+        // gap: 30px;
+        // margin-bottom: 34px;
     }
 
     &__divider2 {
-        //@extend .sign-in__divider;
         display: block;
         width: 100%;
         border-top: 1px solid var(--grey-grade3);
@@ -137,7 +122,6 @@
 
     &__redirect {
         font-size: 16px;
-        //font-weight: 600;
         max-width: 435px;
         width: 100%;
         text-align: center;
@@ -145,7 +129,6 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        //align-items: center;
         gap: 24px;
 
         p {
@@ -161,14 +144,10 @@
             opacity: .5;
             display: block;
             width: 100%;
-            //width: 435px;
         }
     }
 
     @media screen and (max-width: 476px) {
-        &__container {
-            //max-width: var(--sm-scrn-cont);
-        }
 
         &__logo {
             margin-bottom: 50px;
@@ -180,21 +159,6 @@
 
         &__divider {
             width: 39%;
-        }
-
-        &__profile {
-            //max-width: var(--sm-scrn-cont);
-        }
-
-        &__button {
-            //max-width: var(--sm-scrn-cont);
-            //position: relative;
-            //left: 3rem;
-        }
-
-        &__divider2 {
-            //max-width: var(--sm-scrn-cont);
-            //width: 100%;
         }
     }
 }

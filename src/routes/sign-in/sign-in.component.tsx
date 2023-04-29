@@ -30,7 +30,6 @@ const SignIn: React.FC = () => {
   const [disabled, setDisabled] = useState(false);
   const [signInFields, setSignInFields] = useState(defaultSignInFields);
   const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
   
   const { email, password } = signInFields;
 
@@ -57,15 +56,6 @@ const SignIn: React.FC = () => {
         setEmailError('Enter a valid email')
       }
     }
-    // if (name === 'password') {
-    //   const emailRegex = /[\w\d*@.]{6,}/;
-    //   const test = emailRegex.test(value);
-    //   if (test) {
-    //     setPasswordError('')
-    //   }else {
-    //     setPasswordError('At least six characters')
-    //   }
-    // }
 
     return  (setSignInFields({...signInFields, [name]: value}))
   }
@@ -126,16 +116,12 @@ const SignIn: React.FC = () => {
                   htmlFor="password"
                   name="password"
                   value={password}
-                  error={passwordError}
                   onChange={onChangeHandler}
                 />
                 <span className="sign-in__profile">Do not you remember the password?</span>
               </div>
             </div>
 
-            <div className="sign-in__marketing">
-
-            </div>
             <div className="sign-in__check">
               <div className="sign-in__button">
                 <Checkbox 

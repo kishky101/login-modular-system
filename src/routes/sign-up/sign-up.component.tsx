@@ -118,14 +118,14 @@ const SignUp: React.FC = () => {
       if (Number(value) > 0 && Number(value) <= 31)  {
         setDayError('')
       }else {
-        setDayError('from 1-31')
+        setDayError('choose a valid day of the month')
       }
     }
     if (name === 'year') {
       if (Number(value) > 1900 && Number(value) <= 2020)  {
         setYearError('')
       }else {
-        setYearError('from 1900-2020')
+        setYearError('choose a valid year (1900 - 2020)')
       }
     }
     if (name === 'gender') {
@@ -243,7 +243,6 @@ const SignUp: React.FC = () => {
                   margin="10px 0 0"
                   name="day"
                   value={day}
-                  error={dayError}
                   onChange={onChangeHandler}
                 />
                 <FormInput
@@ -254,10 +253,11 @@ const SignUp: React.FC = () => {
                   margin="10px 0 0"
                   name="year"
                   value={year}
-                  error={yearError}
                   onChange={onChangeHandler}
                 />
               </div>
+              {dayError && <span className="sign-up__date--error">{dayError}</span>}
+              {yearError && <span className="sign-up__date--error">{yearError}</span>}
             </fieldset>
             <fieldset className="sign-up__fieldset sign-up__fieldset--radios">
               <legend className="sign-up__legend">What&apos;s your date of birth?</legend>
