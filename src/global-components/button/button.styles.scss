@@ -1,8 +1,6 @@
 .button-container {
-    //width: 100%;
     height: auto;
     font-family: var(--lato-font);
-    //max-width: 435px;
     display: flex;
     justify-content: center;
 
@@ -78,7 +76,6 @@
             font-size: 1rem;
             font-weight: 700;
             line-height: 19.2px;
-            //height: 55px;
 
             &:not(:disabled) {
                 &:hover {

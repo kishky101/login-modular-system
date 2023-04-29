@@ -12,7 +12,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        //border: 1px solid red;
     }
 
     &__logo {
@@ -40,7 +39,6 @@
 
     &__form {
         box-sizing: content-box;
-        //max-width: 442px;
         width: 100%;
     }
 
@@ -84,7 +82,6 @@
         color: var(--black-color);
         font-size: 14px;
         font-weight: 400;
-        //position: relative;
     }
 
     &__fieldset {
@@ -137,7 +134,6 @@
     &__agree {
         font-size: 13px;
         text-align: center;
-        //margin-bottom: 2rem;
         margin-bottom: 33px;
         font-weight: 600;
         line-height: 15.6px;

@@ -14,8 +14,7 @@ const Home: React.FC = () => {
   const dispatch = useAppDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const isLoading = useSelector(selectIsLoading);
-  const navigate = useNavigate()
-  //console.log(auth.currentUser)
+  const navigate = useNavigate();
   useEffect(() => {
     if (!currentUser) {
       return navigate('/sign-in')
