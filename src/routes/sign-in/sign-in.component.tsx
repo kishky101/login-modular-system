@@ -93,7 +93,7 @@ const SignIn: React.FC = () => {
           <Button ><img src={google} /> Sign up with Google</Button>
         </div>
         <div className="sign-in__dividers">
-          <span className="sign-in__divider"></span> or <span className="sign-up__divider"></span>
+          <span className="sign-in__divider"></span> or <span className="sign-up__divider" style={{display: 'block', borderTop: '1px solid', width: '42.7%'}}></span>
         </div>
         <div className="sign-in__form">
           <form onSubmit={onSubmitHandler} className="sign-in__form-fields">
