@@ -4,10 +4,11 @@
     display: flex;
     justify-content: center;
 
-    &__button {
+    & &__button {
         display: block;
         border: none;
-        padding: 1em 3em;
+        //padding: 1em 3em;
+        padding: 20px auto 18px;
         background-color: var(--white-color);
         border-radius: 50px;
         border: 1px solid var(--grey-grade1);
@@ -76,6 +77,8 @@
             font-size: 1rem;
             font-weight: 700;
             line-height: 19.2px;
+            height: 55px;
+            width: 173px;
 
             &:not(:disabled) {
                 &:hover {
@@ -90,7 +93,7 @@
     }
 
     @media screen and (max-width: 300px) {
-        &__button {
+        & &__button {
             font-size: 14px;
 
             &--sign-in {

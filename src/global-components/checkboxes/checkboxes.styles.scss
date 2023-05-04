@@ -1,6 +1,7 @@
 .checkbox-labeling {
     display: block;
     position: relative;
+    top: 2px;
     padding-left: 38px;
     margin-bottom: 0px;
     color: var(--black-color);
@@ -13,7 +14,7 @@
     -ms-user-select: none;
     user-select: none;
 
-    &__checkbox {
+    & &__checkbox {
         position: absolute;
         opacity: 0;
         cursor: pointer;
@@ -32,7 +33,7 @@
         }
     }
 
-    &__checkmark {
+    & &__checkmark {
         position: absolute;
         top: 7px;
         left: 0;
@@ -81,7 +82,7 @@
         margin-top: 1px;
     }
 
-    &__checkbox {
+    & &__checkbox {
         position: absolute;
         opacity: 0;
         cursor: pointer;
@@ -98,7 +99,7 @@
         }
     }
 
-    &__checkmark {
+    & &__checkmark {
         position: absolute;
         top: -2px;
         left: 0;

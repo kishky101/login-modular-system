@@ -130,7 +130,7 @@ const SignIn: React.FC = () => {
                   htmlFor="marketing"
                   name="remember"
                   value="Remember me"
-                  top = '0'
+                  top = '-2px'
                   onChange={onChangeHandler}
                 />
                 <Button type="submit" disabled = {disabled} buttonType="sign-in">Sign up</Button>

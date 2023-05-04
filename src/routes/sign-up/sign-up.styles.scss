@@ -1,12 +1,12 @@
 .sign-up {
-    max-width: var(bg-scrn);
+    //max-width: var(bg-scrn);
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: var(--lato-font);
     margin: 50px 16px 78px;
 
-    &__container {
+    & &__container {
         max-width: var(--bg-scrn-cont);
         display: flex;
         flex-direction: column;
@@ -14,11 +14,11 @@
         align-items: center;
     }
 
-    &__logo {
+    & &__logo {
         margin-bottom: 50px;
     }
 
-    &__h2 {
+    & &__h2 {
         font-weight: 700;
         font-size: 36px;
         line-height: 43.2px;
@@ -28,7 +28,7 @@
         color: var(--black-color);
     }
 
-    &__buttons {
+    & &__buttons {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -37,12 +37,12 @@
         max-width: 435px;
     }
 
-    &__form {
+    & &__form {
         box-sizing: content-box;
         width: 100%;
     }
 
-    &__dividers {
+    & &__dividers {
         max-width: 433px;
         width: 100%;
         margin: 32px 0;
@@ -54,21 +54,21 @@
         gap: 24px;
     }
 
-    &__divider {
+    & &__divider {
         display: inline-block;
         width: 42.7%;
         border-top: 1px solid var(--grey-grade3);
         border-radius: 50px;
     }
 
-    &__h3 {
+    & &__h3 {
         color: var(--black-color);
         font-size: 18px;
         text-align: center;
         margin-bottom: 32px;
     }
 
-    &__text-input {
+    & &__text-input {
         box-sizing: content-box;
         display: flex;
         flex-direction: column;
@@ -77,28 +77,28 @@
         margin-bottom: 2rem;
     }
 
-    &__profile {
+    & &__profile {
         display: block;
         color: var(--black-color);
         font-size: 14px;
         font-weight: 400;
     }
 
-    &__fieldset {
+    & &__fieldset {
         border: none;
         color: var(--black-color);
         margin-bottom: 2rem;
         margin-bottom: 31px;
     }
 
-    &__legend {
+    & &__legend {
         font-weight: 700;
         font-size: 14px;
         margin-bottom: 1rem;
         line-height: 16.8px;
     }
 
-    &__date {
+    & &__date {
         display: grid;
         grid-template-columns: 4.276fr 2.489fr 2.692fr;
         gap: 12px;
@@ -112,13 +112,13 @@
         }
     }
 
-    &__month {
+    & &__month {
         margin-bottom: 10px;
         font-size: 14px;
         font-weight: 700;
     }
 
-    &__radios {
+    & &__radios {
         display: flex;
         flex-wrap: wrap;
         white-space: nowrap;
@@ -126,12 +126,12 @@
         row-gap: 18px;
     }
 
-    &__p {
+    & &__p {
         width: 100%;
         margin: 2rem 0;
     }
 
-    &__agree {
+    & &__agree {
         font-size: 13px;
         text-align: center;
         margin-bottom: 33px;
@@ -144,7 +144,7 @@
         }
     }
 
-    &__terms {
+    & &__terms {
         font-size: 13px;
         text-align: center;
         font-weight: 600;
@@ -155,14 +155,14 @@
         }
     }
 
-    &__button {
+    & &__button {
         width: 100%;
         display: flex;
         justify-content: center;
         margin-bottom: 2rem;
     }
 
-    &__redirect {
+    & &__redirect {
         font-size: 16px;
         font-weight: 600;
         text-align: center;
@@ -176,15 +176,15 @@
 
     @media screen and (max-width: 476px) {
 
-        &__divider {
+        & &__divider {
             width: 40.8%;
         }
 
-        &__date {
+        & &__date {
             grid-template-columns: 3.94fr 2.68fr 2.68fr;
         }
 
-        &__agree {
+        & &__agree {
             font-weight: 600;
 
             &--link {
@@ -192,7 +192,7 @@
             }
         }
 
-        &__terms {
+        & &__terms {
             font-weight: 600;
             padding: 0 7.5px;
 
@@ -206,19 +206,21 @@
     @media screen and (max-width: 375px) {
         max-width: unset;
 
-        &__container {
+        & &__container {
             max-width: unset;
         }
     }
 
     @media screen and (max-width: 300px) {
-        margin: 50px 0px 78px;
+        //margin: 50px 16px 78px;
+        
 
-        &__container {
+        & &__container {
             max-width: 280px;
+            padding: 10px;
         }
 
-        &__h2 {
+        & &__h2 {
             font-size: 24px;
         }
     }
