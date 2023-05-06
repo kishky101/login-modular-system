@@ -1,5 +1,4 @@
 .sign-up {
-    //max-width: var(bg-scrn);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -217,9 +216,7 @@
     }
 
     @media screen and (max-width: 300px) {
-        //margin: 50px 16px 78px;
         
-
         & &__container {
             max-width: 280px;
             padding: 10px;
