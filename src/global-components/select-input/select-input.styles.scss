@@ -73,4 +73,15 @@
         }
     }
 
+    @media  screen and (max-width: 300px) {
+        & &__label {
+            font-size: 12px;
+        }
+
+        & &__option {
+
+            font-size: 14px;
+        }
+    }
+
 }

@@ -51,12 +51,15 @@
         color: var(--red-color);
         font-weight: 700;
         font-size: 14px;
+        display: flex;
+        gap: .5rem;
+
     }
 
 
     @media screen and (max-width: 476px) {
         & &__input {
-            padding: 20px 24px;
+            padding: 20px 24px 19px;
         }
     }
 }

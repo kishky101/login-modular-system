@@ -85,7 +85,7 @@ const SignUp: React.FC = () => {
   }
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
+    //e.preventDefault();
 
     const {name, value} = e.target
 
@@ -241,6 +241,7 @@ const SignUp: React.FC = () => {
                   placeholder="DD"
                   htmlFor="day"
                   margin="10px 0 0"
+                  padding="20px 32px 19px"
                   name="day"
                   value={day}
                   onChange={onChangeHandler}
@@ -251,6 +252,7 @@ const SignUp: React.FC = () => {
                   placeholder="YYY"
                   htmlFor="year"
                   margin="10px 0 0"
+                  padding="20px 32px 19px"
                   name="year"
                   value={year}
                   onChange={onChangeHandler}
@@ -308,9 +310,10 @@ const SignUp: React.FC = () => {
             <div className="sign-up__marketing">
               <Checkbox 
                 type="checkbox"
-                label="Share my registration date with Spotify’s content providers for marketing purposes."
+                label="Share my registration date with Spotify’s. content providers for marketing purposes."
                 htmlFor="marketing"
                 name="marketing"
+                top2="0"
                 value='yes'
                 onChange={onChangeHandler}
               />

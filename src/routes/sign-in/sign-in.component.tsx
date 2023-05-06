@@ -44,7 +44,7 @@ const SignIn: React.FC = () => {
   
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
+    //e.preventDefault();
     const {name, value} = e.target
 
     if (name === 'email') {
